@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace X | The Proprietary Layer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        grace: { 900: '#1e1147', 800: '#341f7a', 600: '#5A32FA', 500: '#7C3AED', 100: '#F3F0FF', 50: '#FAFAFF' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-grace-50 text-gray-900 antialiased">
+
+    <!-- Navigation (Demonstrative, No CTA) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center md:justify-start items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="logo.png" alt="Grace X" class="h-12 w-auto">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-36 pb-24 lg:pt-48 lg:pb-32 bg-grace-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-grace-800 to-grace-900 opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="text-grace-100 font-semibold tracking-wider text-sm uppercase bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm">Sovereign Intelligence</span>
+            <h1 class="mt-8 text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                The <span class="bg-gradient-to-r from-indigo-300 to-purple-300 gradient-text">Proprietary Layer</span>.
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl md:text-2xl text-indigo-100/80 font-light">
+                A vertically integrated architecture designed for the era of sovereign intelligence. From persistent memory to cryptographic governance.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-sm font-bold text-grace-500 uppercase tracking-wider mb-2 block">The Problem</span>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
+                Today AI helps you. <span class="text-grace-600">Tomorrow, it knows you.</span> <br>Then it runs you.
+            </h2>
+            <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+                How much of 'yourself' are you willing to share? In current architectures, utility is directly proportional to vulnerability. There is no middle ground: to empower the AI is to surrender digital autonomy.
+            </p>
+
+            <!-- Leak Cards -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="bg-grace-50 p-6 rounded-2xl border border-gray-100 transition hover:shadow-lg">
+                    <span class="text-xs font-bold text-grace-600 uppercase tracking-wider bg-grace-100 px-2 py-1 rounded">Leakage</span>
+                    <h3 class="mt-4 text-lg font-bold text-grace-900">Samsung leak</h3>
+                    <p class="mt-2 text-sm text-gray-600">Engineers inadvertently leaked sensitive source code and internal notes using public LLMs.</p>
+                </div>
+                <div class="bg-grace-50 p-6 rounded-2xl border border-gray-100 transition hover:shadow-lg">
+                    <span class="text-xs font-bold text-grace-600 uppercase tracking-wider bg-grace-100 px-2 py-1 rounded">Breach</span>
+                    <h3 class="mt-4 text-lg font-bold text-grace-900">OpenAI breach</h3>
+                    <p class="mt-2 text-sm text-gray-600">A bug allowed users to see titles from another active user's chat history, exposing private interaction patterns.</p>
+                </div>
+                <div class="bg-grace-50 p-6 rounded-2xl border border-gray-100 transition hover:shadow-lg">
+                    <span class="text-xs font-bold text-grace-600 uppercase tracking-wider bg-grace-100 px-2 py-1 rounded">PII Leak</span>
+                    <h3 class="mt-4 text-lg font-bold text-grace-900">GitHub Copilot</h3>
+                    <p class="mt-2 text-sm text-gray-600">Instances of the assistant suggesting valid API keys and private secrets harvested from public training corpora.</p>
+                </div>
+                <div class="bg-grace-50 p-6 rounded-2xl border border-gray-100 transition hover:shadow-lg">
+                    <span class="text-xs font-bold text-grace-600 uppercase tracking-wider bg-grace-100 px-2 py-1 rounded">Regulatory</span>
+                    <h3 class="mt-4 text-lg font-bold text-grace-900">Italian Garante ban</h3>
+                    <p class="mt-2 text-sm text-gray-600">First nationwide ban of ChatGPT due to privacy concerns regarding the lack of legal basis for data collection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Momentum Section (Enhanced with Geopolitical Tensions) -->
+    <section class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="text-sm font-bold text-grace-500 uppercase tracking-wider mb-2 block">The Momentum</span>
+            
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start mt-4">
+                <!-- Left: Geopolitics & Regulation -->
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 leading-tight">Geopolitical tensions.<br><span class="text-grace-600">The Sovereignty Mandate.</span></h2>
+                    <p class="mt-6 text-lg text-gray-600 border-l-4 border-grace-500 pl-4">
+                        Geopolitical tensions are accelerating Europe's push for a <strong>'Digital Sanctuary'</strong> and sovereign alternatives to non-EU tech infrastructure.
+                    </p>
+                    <p class="mt-4 text-gray-600">
+                        Regulation exacerbates this problem. Sovereignty is the wedge. Current AI adoption strategies force a compromise between security, performance, and autonomy.
+                    </p>
+                    
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex justify-between items-center mb-1">
+                                <h4 class="font-bold text-grace-900">EU AI Act</h4>
+                                <span class="text-[10px] bg-grace-100 text-grace-600 px-2 py-0.5 rounded uppercase font-bold">Ready</span>
+                            </div>
+                            <p class="text-xs text-gray-500">Automated risk tiering and transparent audit logs.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex justify-between items-center mb-1">
+                                <h4 class="font-bold text-grace-900">GDPR</h4>
+                                <span class="text-[10px] bg-grace-100 text-grace-600 px-2 py-0.5 rounded uppercase font-bold">Ready</span>
+                            </div>
+                            <p class="text-xs text-gray-500">Zero-knowledge processing environments.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex justify-between items-center mb-1">
+                                <h4 class="font-bold text-grace-900">NIS2</h4>
+                                <span class="text-[10px] bg-grace-100 text-grace-600 px-2 py-0.5 rounded uppercase font-bold">Ready</span>
+                            </div>
+                            <p class="text-xs text-gray-500">Supply chain security validation.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex justify-between items-center mb-1">
+                                <h4 class="font-bold text-grace-900">DORA</h4>
+                                <span class="text-[10px] bg-grace-100 text-grace-600 px-2 py-0.5 rounded uppercase font-bold">Ready</span>
+                            </div>
+                            <p class="text-xs text-gray-500">Digital operational resilience testing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Data Capital -->
+                <div class="mt-16 lg:mt-0 bg-grace-900 rounded-3xl p-10 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-grace-600 rounded-full blur-3xl opacity-20"></div>
+                    <h3 class="text-3xl font-bold relative z-10">Data is the new capital class.</h3>
+                    
+                    <div class="mt-10 relative z-10">
+                        <span class="text-xs font-bold tracking-widest text-grace-300 uppercase">Size of the category</span>
+                        <p class="text-7xl font-extrabold mt-2 text-grace-500">7.8<span class="text-5xl">%</span></p>
+                        <p class="mt-4 text-lg text-white font-medium">of EU market-sector GVA (Gross Value Added) is data investment.</p>
+                    </div>
+
+                    <div class="mt-10 space-y-4 relative z-10 border-t border-white/20 pt-8">
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            <strong class="text-white">€7.80 of every €100</strong> in European private output is spent building data assets - twice what companies invest in software, three times what they spend on R&D.
+                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            The proprietary knowledge graph of an organization is exactly what Grace X builds. Whoever owns the layer captures all returns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Architecture: How Grace Works (Slide 8 Translated to UI) -->
+    <section class="py-24 bg-white border-b border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-sm font-bold text-grace-500 uppercase tracking-wider mb-2 block">Product</span>
+            <h2 class="text-4xl font-bold text-gray-900">How <span class="text-grace-600">Grace</span> works</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">A vertically integrated architecture designed for the era of sovereign intelligence. From persistent memory to cryptographic governance.</p>
+
+            <!-- Flow Diagram -->
+            <div class="mt-20 relative max-w-5xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+                    
+                    <!-- Left: User/Device -->
+                    <div class="w-full lg:w-48 flex flex-col items-center">
+                        <div class="w-20 h-20 bg-gray-50 border-2 border-gray-200 rounded-full flex items-center justify-center shadow-inner mb-4">
+                            <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div class="text-sm font-bold text-gray-900">Input</div>
+                        <div class="text-xs text-gray-500">RAW data</div>
+                    </div>
+
+                    <!-- Arrow 1 -->
+                    <div class="hidden lg:flex flex-col items-center w-32">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Prompt Request</span>
+                        <svg class="w-full h-4 text-grace-300" preserveAspectRatio="none" viewBox="0 0 100 10" fill="none"><path d="M0 5h95m-5-5l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+
+                    <!-- Center: Grace Middle Layer -->
+                    <div class="w-full lg:w-auto bg-grace-50 rounded-[2.5rem] p-8 border border-grace-200 shadow-xl relative">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-grace-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Grace X Proprietary Layer</div>
+                        
+                        <!-- Outbound processing -->
+                        <div class="space-y-3 mb-8">
+                            <div class="bg-white border border-gray-200 px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-3 shadow-sm">
+                                <span class="text-grace-500">🛡️</span> Pseudonymization
+                            </div>
+                            <div class="bg-white border border-gray-200 px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-3 shadow-sm">
+                                <span class="text-grace-500">🔒</span> Encryption
+                            </div>
+                            <div class="bg-white border border-gray-200 px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-3 shadow-sm">
+                                <span class="text-grace-500">🧠</span> Memory Graph
+                            </div>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="w-full border-t border-dashed border-grace-300 my-4"></div>
+
+                        <!-- Inbound processing -->
+                        <div class="space-y-3 mt-8">
+                            <div class="bg-white border border-gray-200 px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-3 shadow-sm">
+                                <span class="text-grace-500">🔓</span> De-Encryption
+                            </div>
+                            <div class="bg-white border border-gray-200 px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-3 shadow-sm">
+                                <span class="text-grace-500">👤</span> De-anonymization
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow 2 -->
+                    <div class="hidden lg:flex flex-col items-center w-32">
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Prompt Request</span>
+                        <svg class="w-full h-4 text-grace-300" preserveAspectRatio="none" viewBox="0 0 100 10" fill="none"><path d="M0 5h95m-5-5l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                        
+                        <div class="mt-20"></div> <!-- spacer -->
+
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Prompt Answer</span>
+                        <svg class="w-full h-4 text-grace-300" preserveAspectRatio="none" viewBox="0 0 100 10" fill="none"><path d="M100 5H5m5-5l-5 5 5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+
+                    <!-- Right: Cloud / Global Models -->
+                    <div class="w-full lg:w-48 flex flex-col items-center">
+                        <div class="w-20 h-20 bg-white border-2 border-grace-600 text-grace-600 rounded-full flex items-center justify-center shadow-lg mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <div class="text-sm font-bold text-gray-900">Global LLM</div>
+                        <div class="text-xs text-gray-500">Models (Cloud)</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Pillars -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="space-y-24">
+                
+                <!-- Pillar 1 -->
+                <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                    <div class="lg:col-span-7">
+                        <span class="text-sm font-bold text-grace-500 uppercase tracking-wider">Technology Pillar I</span>
+                        <h3 class="mt-2 text-3xl font-bold text-gray-900">Self-Optimizing Memory Engine</h3>
+                        <p class="mt-4 text-lg text-gray-600">The cognitive layer between your data and any AI model. Persistent, self-optimizing memory that evolves with your organization.</p>
+                        
+                        <div class="mt-8 grid sm:grid-cols-2 gap-6">
+                            <div class="border border-gray-100 rounded-xl p-5 shadow-sm">
+                                <h4 class="font-bold text-gray-900">Intent-Based Routing</h4>
+                                <p class="text-sm text-gray-600 mt-2">Every query is classified and dispatched through specialized strategies, bypassing brute-force vector search.</p>
+                            </div>
+                            <div class="border border-gray-100 rounded-xl p-5 shadow-sm">
+                                <h4 class="font-bold text-gray-900">Synthesized Insights</h4>
+                                <p class="text-sm text-gray-600 mt-2">A virtual knowledge graph traverses relationships to surface higher-order patterns invisible to standard search.</p>
+                            </div>
+                            <div class="border border-gray-100 rounded-xl p-5 shadow-sm sm:col-span-2">
+                                <h4 class="font-bold text-gray-900">Closed-Loop Self-Optimization</h4>
+                                <p class="text-sm text-gray-600 mt-2">Control-theory loops analyze precision/recall to auto-tune thresholds and weights without human intervention.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 lg:mt-0 lg:col-span-5">
+                        <div class="bg-grace-900 rounded-3xl p-8 text-white text-center shadow-2xl relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-grace-600 rounded-full blur-3xl opacity-50"></div>
+                            <p class="text-sm font-semibold uppercase tracking-widest text-grace-100">Proven Performance</p>
+                            <h4 class="text-2xl font-bold mt-2">LoCoMo Benchmark</h4>
+                            <p class="text-sm text-gray-300 mt-2">Evaluated against industry-leading memory frameworks on complex long-context reasoning tasks.</p>
+                            <div class="mt-8">
+                                <span class="text-6xl font-extrabold text-white">74.6<span class="text-3xl">%</span></span>
+                                <p class="text-lg font-medium mt-1">J-Score Rating</p>
+                                <div class="mt-6 inline-block bg-green-500/20 text-green-400 px-5 py-2 rounded-full text-sm font-bold border border-green-500/30">
+                                    ↑ +21.7 points vs OpenAI Memory
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 & 3 Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Pillar 2 -->
+                    <div class="bg-grace-50 rounded-3xl p-10 border border-gray-100">
+                        <span class="text-sm font-bold text-grace-500 uppercase tracking-wider">Technology Pillar II</span>
+                        <h3 class="mt-2 text-2xl font-bold text-gray-900">The Knowledge Graph</h3>
+                        <p class="mt-4 text-gray-600">Structured mapping of People, Projects, Clients, Products, and Documents. Enables AI to interpret real operational context.</p>
+                        <div class="mt-8 space-y-4">
+                            <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-gray-900">Contextual Intelligence</h4>
+                                <p class="text-sm text-gray-600 mt-1">Deep relational understanding across siloed data points to surface hidden operational insights.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-gray-900">Cross-LLM Interrogation</h4>
+                                <p class="text-sm text-gray-600 mt-1">Agnostic routing framework that questions multiple models simultaneously against your secure graph.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-grace-50 rounded-3xl p-10 border border-gray-100">
+                        <span class="text-sm font-bold text-grace-500 uppercase tracking-wider">Technology Pillar III</span>
+                        <h3 class="mt-2 text-2xl font-bold text-gray-900">Privacy by Design</h3>
+                        <p class="mt-4 text-gray-600">No data surrender. Cryptographic infrastructure orchestrated with Trusted Execution Environments and computation on encrypted data.</p>
+                        <div class="mt-8 space-y-4">
+                            <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-gray-900">Pseudonymization & Selective Disclosure</h4>
+                                <p class="text-sm text-gray-600 mt-1">Decoupling identity at the edge. Zero-knowledge proofs verify attributes without revealing underlying data.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-gray-900">Encrypted Environment</h4>
+                                <p class="text-sm text-gray-600 mt-1">Processing data while it remains encrypted in memory, neutralizing vectors for insider threats and scraping.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Strategy (Dual Motion) -->
+    <section class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-sm font-bold text-grace-500 uppercase tracking-wider mb-2 block">Go To Market</span>
+            <h2 class="text-4xl font-bold text-gray-900">The Dual-Motion Strategy.</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Avoiding the mistakes of 'consumer-only' or 'enterprise-slow’ by combining fast, bottom-up usage with deep, top-down validation.</p>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
+                    <span class="text-[10px] font-bold text-grace-500 uppercase tracking-wider bg-grace-50 px-3 py-1 rounded-full mb-6">Bottom-up adoption</span>
+                    <h3 class="text-xl font-bold text-gray-900">Professionals & Teams</h3>
+                    <p class="text-sm text-gray-500 mt-3 text-center">Friction-less adoption for immediate utility. They feel the pain today and use AI on sensitive work without requiring long procurement cycles.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center transform md:scale-105 z-10 border-b-4 border-b-grace-300">
+                    <span class="text-[10px] font-bold text-grace-500 uppercase tracking-wider bg-grace-50 px-3 py-1 rounded-full mb-6">Market Expansion</span>
+                    <h3 class="text-xl font-bold text-gray-900">SMBs</h3>
+                    <p class="text-sm text-gray-500 mt-3 text-center">Targeting the optimal entry points for growing businesses to maximize adoption and demonstrate compounding value.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
+                    <span class="text-[10px] font-bold text-grace-500 uppercase tracking-wider bg-grace-50 px-3 py-1 rounded-full mb-6">Top-down validation</span>
+                    <h3 class="text-xl font-bold text-gray-900">Enterprise Strategic</h3>
+                    <p class="text-sm text-gray-500 mt-3 text-center">Co-designing foundational layers. Prioritizing deep governance, strict permissions, and comprehensive auditability from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-10 text-center border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center gap-2">
+            <img src="logo.png" alt="Grace X" class="h-16 w-auto mb-2 opacity-60">
+            <p class="text-sm text-gray-500 font-semibold tracking-wide">&copy; 2026 GRACEX TECHNOLOGIES SRLS</p>
+            <p class="text-xs text-gray-400">Viale Luca Gaurico 9/11 &mdash; 00143 Roma (RM)</p>
+            <p class="text-xs text-gray-400">PEC: <a href="mailto:gracextechnologiessrls@legalmail.it" class="text-grace-500 hover:underline">gracextechnologiessrls@legalmail.it</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
