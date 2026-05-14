@@ -397,7 +397,7 @@
 </div>
 <div class="relative max-w-6xl mx-auto py-8">
 <!-- Connection Lines SVG Layer -->
-<svg class="absolute inset-0 w-full h-full pointer-events-none z-20" fill="none" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-20" fill="none" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
 <path class="stroke-primary/10 dark:stroke-white/10" d="M320 160 C450 160, 450 300, 500 300" stroke-width="1.5"></path>
 <path class="stroke-primary/10 dark:stroke-white/10" d="M320 300 H500" stroke-width="1.5"></path>
 <path class="stroke-primary/10 dark:stroke-white/10" d="M320 440 C450 440, 450 300, 500 300" stroke-width="1.5"></path>
@@ -413,7 +413,7 @@
 <path class="infra-llm-path" d="M700 300 H880" style="animation-delay:3s;"/>
 <path class="infra-llm-path" d="M700 300 C750 300, 750 440, 880 440" style="animation-delay:6s;"/>
 </svg>
-<div class="flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-12 relative z-10">
 <!-- Left: Company Data -->
 <div class="w-full lg:w-72 space-y-4">
 <p class="text-[11px] tracking-[0.3em] text-on-surface-variant dark:text-on-surface-variant-dark uppercase mb-6 text-center font-bold">Your Company Data</p>
@@ -448,6 +448,20 @@
 </div>
 </div>
 </div>
+<!-- Mobile-only connector: Sources → Brain -->
+<div class="block lg:hidden w-full flex justify-center">
+  <svg viewBox="0 0 300 114" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-sm" style="height:114px">
+    <path d="M60 4 Q60 28 150 50" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M150 4 L150 50" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M240 4 Q240 28 150 50" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M150 50 L150 102" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M60 4 Q60 28 150 50" class="infra-flow-path" style="animation-delay:0s;"/>
+    <path d="M150 4 L150 50" class="infra-flow-path" style="animation-delay:-0.8s;"/>
+    <path d="M240 4 Q240 28 150 50" class="infra-flow-path" style="animation-delay:-1.6s;"/>
+    <path d="M150 50 L150 102" class="infra-flow-path" style="animation-delay:-0.4s;"/>
+    <path d="M144 96 L150 106 L156 96" fill="none" class="stroke-primary/30 dark:stroke-white/30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
 <!-- Center: GraceX Brain -->
 <div class="w-full lg:w-[460px]">
 <div class="bg-white dark:bg-surface-container-highest-dark border border-primary/10 dark:border-outline-variant-dark/20 rounded-[40px] p-10 shadow-[0_32px_64px_-16px_rgba(5,26,73,0.12)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.4)] text-center relative overflow-hidden transition-all hover:shadow-[0_48px_80px_-24px_rgba(5,26,73,0.15)]">
@@ -464,9 +478,25 @@
 </div>
 </div>
 </div>
+<!-- Mobile-only connector: Brain → LLMs -->
+<div class="block lg:hidden w-full flex justify-center relative z-20">
+  <svg viewBox="0 0 300 310" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-sm" style="height:310px">
+    <path d="M150 4 L150 55" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M150 55 L150 129" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M150 55 Q90 100 80 211" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M150 55 Q220 170 230 293" class="stroke-primary/10 dark:stroke-white/10" stroke-width="1.5"/>
+    <path d="M150 4 L150 55" class="infra-flow-path" style="animation-delay:0s;"/>
+    <path d="M150 55 L150 129" class="infra-flow-path" style="animation-delay:-0.5s;"/>
+    <path d="M150 55 Q90 100 80 211" class="infra-flow-path" style="animation-delay:-1.0s;"/>
+    <path d="M150 55 Q220 170 230 293" class="infra-flow-path" style="animation-delay:-1.5s;"/>
+    <path d="M144 123 L150 133 L156 123" fill="none" class="stroke-primary/30 dark:stroke-white/30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M74 205 L80 215 L86 205" fill="none" class="stroke-primary/30 dark:stroke-white/30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M224 287 L230 297 L236 287" fill="none" class="stroke-primary/30 dark:stroke-white/30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
 <!-- Right: LLMs -->
-<div class="w-full lg:w-72 space-y-4">
-<p class="text-[11px] tracking-[0.3em] text-on-surface-variant dark:text-on-surface-variant-dark uppercase mb-6 text-center font-bold">Any Frontier LLM</p>
+<div class="w-full lg:w-72 space-y-4 mt-[-230px] lg:mt-0 relative z-10">
+<p class="hidden lg:block text-[11px] tracking-[0.3em] text-on-surface-variant dark:text-on-surface-variant-dark uppercase mb-6 text-center font-bold">Any Frontier LLM</p>
 <div class="bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center justify-between shadow-sm transition-transform hover:-translate-y-1">
 <div>
 <p class="text-sm font-bold text-primary dark:text-on-surface-dark">GPT</p>
