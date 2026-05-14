@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Single-file static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. The entire site lives in `code.html` — no build system, no framework, no package manager.
+Single-file static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. The entire site lives in `index.html` — no build system, no framework, no package manager.
 
 ## Running the Page
 
@@ -21,6 +21,8 @@ python -m http.server 8080
 `code.html` is a fully self-contained file with three logical zones:
 
 1. **`<head>` / Tailwind config** (`<script id="tailwind-config">`) — the entire design token system lives here as a `tailwind.config` object. All custom colors, font sizes, border radii, and spacing are defined inline. Edit tokens here to propagate changes site-wide.
+
+> `index.html` is the GitHub Pages entry point. The file was previously named `code.html`; references to that name in older notes refer to the same file.
 
 2. **`<body>` sections** — sequential marketing sections, each commented with their name. Order: `TopNavBar` → `Hero` → `Problem` → `Solution` → `Infrastructure` → `Enterprise Superintelligence` → `How Grace-X Works` → `Final CTA` → `Footer`. The layout uses a `max-w-[1280px] mx-auto` container throughout. All sections from Hero through Final CTA are wrapped in a `<main>` element.
 
