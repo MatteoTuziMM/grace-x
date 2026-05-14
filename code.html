@@ -1,0 +1,775 @@
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GRACE-X | Private AI Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="icon" type="image/png" href="logos/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#051A49",
+                        "primary-vibrant": "#1E0040",
+                        "purple-vibrant": "#3B0764",
+                        "on-primary": "#FDFBF7",
+                        "background": "#FDFBF7",
+                        "surface": "#F5F2EA",
+                        "on-surface": "#0A192F",
+                        "on-surface-variant": "#44566C",
+                        "outline": "#D1D5DB",
+                        "outline-variant": "#E5E7EB",
+                        "primary-container": "#E0F2F1",
+                        "on-primary-container": "#004D40",
+                        "secondary": "#051A49",
+                        "tertiary": "#FBC02D",
+                        "surface-container": "#F5F2EA",
+                        "surface-container-low": "#FAF8F2",
+                        "surface-container-high": "#EBE8E0",
+                        "surface-container-highest": "#E1DED5",
+                        "surface-variant": "#E1DED5",
+                        "inverse-surface": "#051A49",
+                        "inverse-on-surface": "#FDFBF7",
+                        
+                        // Dark Theme Design System Integration
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-lowest": "#0d0e11",
+                        "primary-container-dark": "#1a365d",
+                        "on-surface-dark": "#e3e2e6",
+                        "secondary-dark": "#ffe083",
+                        "on-secondary-fixed": "#231b00",
+                        "on-secondary": "#3c2f00",
+                        "primary-fixed": "#d6e3ff",
+                        "error": "#ffb4ab",
+                        "on-primary-container-dark": "#86a0cd",
+                        "on-tertiary": "#00354a",
+                        "secondary-fixed": "#ffe083",
+                        "tertiary-container-dark": "#003a51",
+                        "surface-bright": "#38393c",
+                        "tertiary-fixed": "#c4e7ff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface-dark": "#e3e2e6",
+                        "outline-dark": "#8e9099",
+                        "primary-dark": "#5B21B6",
+                        "background-dark": "#121316",
+                        "secondary-fixed-dim": "#eec200",
+                        "inverse-primary": "#455f88",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary-container-dark": "#eec200",
+                        "surface-dim": "#121316",
+                        "on-surface-variant-dark": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-tint": "#adc7f7",
+                        "surface-container-highest-dark": "#343538",
+                        "surface-container-dark": "#1e2022",
+                        "tertiary-dark": "#7bd0ff",
+                        "on-primary-dark": "#133057",
+                        "surface-dark": "#121316",
+                        "error-container": "#93000a",
+                        "surface-variant-dark": "#343538",
+                        "on-secondary-container": "#645000",
+                        "inverse-on-surface-dark": "#2f3033",
+                        "on-error": "#690005",
+                        "surface-container-low-dark": "#1a1c1e",
+                        "on-tertiary-container": "#08aae4",
+                        "outline-variant-dark": "#43474e",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed": "#001e2c",
+                        "on-background-dark": "#e3e2e6",
+                        "surface-container-high-dark": "#292a2d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "block-gap": "32px",
+                        "unit": "4px",
+                        "container-padding": "32px",
+                        "section-gap": "96px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Space Grotesk"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        *, *::before, *::after {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body {
+            background-color: #FDFBF7;
+            color: #0A192F;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .dark body {
+            background-color: #121316;
+            color: #e3e2e6;
+        }
+
+        .mask-radial {
+            mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+        }
+
+        .blend-bg {
+            background: linear-gradient(to right, #FDFBF7 0%, transparent 40%, transparent 60%, #FDFBF7 100%),
+                        linear-gradient(to bottom, #FDFBF7 0%, transparent 20%, transparent 80%, #FDFBF7 100%);
+        }
+
+        .dark .blend-bg {
+            background: linear-gradient(to right, #121316 0%, transparent 40%, transparent 60%, #121316 100%),
+                        linear-gradient(to bottom, #121316 0%, transparent 20%, transparent 80%, #121316 100%);
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        /* ── Circular Wheel ── */
+        @keyframes gx-flow {
+            to { stroke-dashoffset: -60; }
+        }
+        .gx-arrow-path {
+            fill: none;
+            stroke: rgba(5,26,73,0.18);
+            stroke-width: 1.2;
+            stroke-dasharray: 4 8;
+            animation: gx-flow 4s linear infinite;
+            transition: stroke 0.4s, stroke-width 0.4s;
+        }
+        .dark .gx-arrow-path {
+            stroke: rgba(255,255,255,0.2);
+        }
+        .gx-arrow-path.lit {
+            stroke: rgba(124,58,237,0.55);
+            stroke-width: 1.6;
+        }
+
+        /* ── Enterprise Infra Flow Animation ── */
+        @keyframes infra-flow {
+            to { stroke-dashoffset: -84; }
+        }
+        .infra-flow-path {
+            fill: none;
+            stroke: rgba(30,0,64,0.55);
+            stroke-width: 2;
+            stroke-dasharray: 4 10;
+            stroke-linecap: round;
+            animation: infra-flow 2.5s linear infinite;
+        }
+        .dark .infra-flow-path {
+            stroke: rgba(124,58,237,0.65);
+        }
+        @keyframes infra-dot-blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.7); }
+        }
+        .infra-activity-dot {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 9999px;
+            background: rgba(30,0,64,0.45);
+            animation: infra-dot-blink 1.8s ease-in-out infinite;
+        }
+        .dark .infra-activity-dot {
+            background: rgba(124,58,237,0.65);
+        }
+
+        /* ── LLM Sequential Sweep Animation ── */
+        @keyframes infra-llm-sweep {
+            0%          { stroke-dashoffset: 100; }
+            33%         { stroke-dashoffset: -380; }
+            33.1%, 100% { stroke-dashoffset: 100; }
+        }
+        .infra-llm-path {
+            fill: none;
+            stroke: rgba(30,0,64,0.35);
+            stroke-width: 2;
+            stroke-dasharray: 90 600;
+            stroke-linecap: round;
+            animation: infra-llm-sweep 9s linear infinite;
+            animation-fill-mode: backwards;
+        }
+        .dark .infra-llm-path {
+            stroke: rgba(124,58,237,0.4);
+        }
+
+        /* Contact form inline */
+        #cta-btn-area {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        #cta-btn-area.hiding {
+            opacity: 0;
+            transform: scale(0.85);
+            pointer-events: none;
+        }
+        #cta-form-container {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease 0.15s;
+        }
+        #cta-form-container.is-open {
+            max-height: 700px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="selection:text-on-primary selection:bg-primary-vibrant/20 dark:selection:bg-primary-dark/40">
+<!-- TopNavBar -->
+<header class="bg-background/80 dark:bg-background-dark/80 top-0 sticky backdrop-blur-md border-b border-primary/5 dark:border-outline-variant-dark/20 z-50">
+<div class="max-w-[1280px] mx-auto px-8 py-4 flex justify-between items-center">
+<div onclick="window.scrollTo({top:0,behavior:'smooth'})" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-primary-dark flex items-center cursor-pointer select-none">
+            <img src="logos/logo.png" alt="Grace-X" class="h-8 w-auto mr-2"/>
+            Grace-X
+        </div>
+<nav class="hidden md:flex gap-10 items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#platform-section" onclick="event.preventDefault();document.getElementById('platform-section').scrollIntoView({behavior:'smooth',block:'start'})">Platform</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#gx-section" onclick="event.preventDefault();document.getElementById('gx-section').scrollIntoView({behavior:'smooth',block:'start'})">Technology</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#">Contact</a>
+</nav>
+<div>
+<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-white text-black px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-8 pt-20 pb-20">
+<div class="max-w-4xl">
+<h1 class="font-display-xl text-[48px] md:text-[64px] leading-[1.1] tracking-tight text-primary dark:text-on-background-dark mb-6 text-balance font-bold">
+                The privacy-preserving brain for enterprise AI.
+            </h1>
+<p class="font-body-lg text-lg md:text-xl text-on-surface-variant dark:text-on-surface-variant-dark max-w-2xl mb-10 leading-relaxed text-balance">
+                A human-like enterprise memory and knowledge graph platform enabling privacy-preserving AI interactions in regulated industries.
+            </p>
+<div class="flex flex-wrap gap-5">
+<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-white text-black px-10 py-4 rounded-lg font-bold text-sm tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer">
+                    Get in Touch
+                </button>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="max-w-[1280px] mx-auto px-8 py-20 border-t border-primary/5 dark:border-outline-variant-dark/10">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+<div class="md:col-span-5">
+<h2 class="font-headline-lg text-3xl text-primary dark:text-on-background-dark leading-tight text-balance font-bold">
+                    AI is becoming the interface to everything
+                </h2>
+</div>
+<div class="md:col-span-7">
+<p class="font-body-lg text-lg text-on-surface-variant dark:text-on-surface-variant-dark mb-10 leading-relaxed max-w-[65ch]">
+                    But using it often means sending sensitive company data to third parties, or settling for weaker systems that teams do not want to use.
+                </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-12">
+<div>
+<div class="h-0.5 w-10 bg-primary-vibrant dark:bg-primary-dark mb-4"></div>
+<p class="text-sm font-medium text-on-surface dark:text-on-surface-dark leading-relaxed">Frontier models deliver performance, but expose data.</p>
+</div>
+<div>
+<div class="h-0.5 w-10 bg-primary-vibrant dark:bg-primary-dark mb-4"></div>
+<p class="text-sm font-medium text-on-surface dark:text-on-surface-dark leading-relaxed">Local models preserve control, but limit usability.</p>
+</div>
+<div>
+<div class="h-0.5 w-10 bg-primary-vibrant dark:bg-primary-dark mb-4"></div>
+<p class="text-sm font-medium text-on-surface dark:text-on-surface-dark leading-relaxed">Enterprises should not have to choose between intelligence and sovereignty.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="bg-surface dark:bg-surface-container-dark py-20 relative overflow-hidden transition-colors">
+<div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+<div class="absolute inset-0 blend-bg z-10"></div>
+<img alt="Sovereign AI Infrastructure Visualization" class="w-full h-full object-cover mask-radial grayscale contrast-125 dark:opacity-20" src="https://lh3.googleusercontent.com/aida/ADBb0uh9BJ2-u9OdGvLLbx6v66EVASSdlmEtocmtvGh7LMW17vRPVV46IeDDUFWmcth9hzjejWE5660-S2fNnT6JVkwZ28tZ9a7sfaYBxR67_IcUohGEAVm8GrtjIBzfgBHm64T1h7IJ5vcWnsZefIihc-1kdsQuz9ujTpG1z3ofL-a_b6bMufW5BJY3vuqbu-_5XV-Mllga37zC_aiIt7OtjbaO3Kbw1V1MnFIxMAslPNGDBXSjJBwlMzeIyk8qjFzlf2-BSylHjUeQIS0"/>
+</div>
+<div class="max-w-[1280px] mx-auto px-8 relative z-10">
+<div class="mb-12 max-w-3xl">
+<h2 class="font-display-xl text-[40px] md:text-[48px] text-primary dark:text-on-background-dark mb-6 leading-tight text-balance font-bold">
+                    Use AI on anything. Keep control of everything.
+                </h2>
+<p class="font-body-lg text-lg text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed max-w-[65ch]">
+                    Grace-X is the private memory and governance layer between your data and any AI model. It manages context, privacy, and control before the model ever sees the data.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 rounded-xl border border-primary/5 dark:border-outline-variant-dark/20 bg-background/90 dark:bg-surface-container-high-dark/90 backdrop-blur-md shadow-sm hover:shadow-md transition-all group">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark mb-6 text-3xl block transition-transform group-hover:-translate-y-1">memory</span>
+<h3 class="font-headline-md text-xl text-primary dark:text-on-surface-dark mb-4 font-bold">Persistent Memory</h3>
+<p class="font-body-md text-base text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed">A self-optimizing memory layer that evolves with your organization and gives AI durable context over time.</p>
+</div>
+<div class="p-8 rounded-xl border border-primary/5 dark:border-outline-variant-dark/20 bg-background/90 dark:bg-surface-container-high-dark/90 backdrop-blur-md shadow-sm hover:shadow-md transition-all group">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark mb-6 text-3xl block transition-transform group-hover:-translate-y-1">hub</span>
+<h3 class="font-headline-md text-xl text-primary dark:text-on-surface-dark mb-4 font-bold">Operational Context</h3>
+<p class="font-body-md text-base text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed">A structured knowledge graph connecting people, projects, clients, products, and documents so AI can reason on real business context.</p>
+</div>
+<div class="p-8 rounded-xl border border-primary/5 dark:border-outline-variant-dark/20 bg-background/90 dark:bg-surface-container-high-dark/90 backdrop-blur-md shadow-sm hover:shadow-md transition-all group">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark mb-6 text-3xl block transition-transform group-hover:-translate-y-1">privacy_tip</span>
+<h3 class="font-headline-md text-xl text-primary dark:text-on-surface-dark mb-4 font-bold">Privacy by Design</h3>
+<p class="font-body-md text-base text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed">Cryptographic governance and privacy infrastructure built from the ground up, across cloud or on-prem environments.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Infrastructure Section -->
+<section class="bg-surface-container-low dark:bg-surface-container-low-dark border-y border-primary/5 dark:border-outline-variant-dark/20 transition-colors">
+<div class="max-w-[1280px] mx-auto px-8 py-20">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-lg text-3xl md:text-[32px] text-primary dark:text-on-background-dark mb-6 leading-tight font-bold">Built for the era of sovereign intelligence</h2>
+<p class="font-body-lg text-lg text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed">Grace-X is designed as vertically integrated AI infrastructure for enterprises that need interoperability, privacy, and control across models, clouds, and environments.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center group">
+<div class="w-20 h-20 rounded-full bg-primary/5 dark:bg-surface-bright/20 flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark text-4xl">memory</span>
+</div>
+<h4 class="font-headline-md text-xl text-primary dark:text-on-surface-dark mb-8 max-w-[200px] leading-tight h-12 flex items-center justify-center font-bold">Persistent Memory Engine</h4>
+<div class="w-12 h-0.5 bg-primary-vibrant dark:bg-primary-dark mb-4"></div>
+<p class="text-[11px] tracking-[0.25em] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase">Pillar 01</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-20 h-20 rounded-full bg-primary/5 dark:bg-surface-bright/20 flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark text-4xl">hub</span>
+</div>
+<h4 class="font-headline-md text-xl text-primary dark:text-on-surface-dark mb-8 max-w-[240px] leading-tight h-12 flex items-center justify-center font-bold">Enterprise Knowledge Graph</h4>
+<div class="w-12 h-0.5 bg-primary-vibrant dark:bg-primary-dark mb-4"></div>
+<p class="text-[11px] tracking-[0.25em] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase">Pillar 02</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-20 h-20 rounded-full bg-primary/5 dark:bg-surface-bright/20 flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark text-4xl">enhanced_encryption</span>
+</div>
+<h4 class="font-headline-md text-xl text-primary dark:text-on-surface-dark mb-8 max-w-[260px] leading-tight h-12 flex items-center justify-center font-bold">Advanced Cryptographic Infrastructure</h4>
+<div class="w-12 h-0.5 bg-primary-vibrant dark:bg-primary-dark mb-4"></div>
+<p class="text-[11px] tracking-[0.25em] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase">Pillar 03</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Enterprise Superintelligence Section -->
+<section id="platform-section" class="bg-background dark:bg-background-dark overflow-hidden transition-colors">
+<div class="max-w-[1280px] mx-auto px-8 py-20 relative">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 dark:bg-primary-container-dark/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
+<div class="mb-16 max-w-4xl relative z-10">
+<h2 class="font-display-xl text-[40px] md:text-[48px] mb-6 text-primary dark:text-on-background-dark leading-tight text-balance font-bold">
+                    Enterprise Superintelligence <span class="text-primary-vibrant dark:text-primary-dark">Unlocked</span>
+</h2>
+<p class="font-body-lg text-lg text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed max-w-[65ch]">
+                    Grace-X turns your company's data into a private, persistent memory — and routes it to whichever frontier LLM you need for maximum intelligence.
+                </p>
+</div>
+<div class="relative max-w-6xl mx-auto py-8">
+<!-- Connection Lines SVG Layer -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-20" fill="none" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<path class="stroke-primary/10 dark:stroke-white/10" d="M320 160 C450 160, 450 300, 500 300" stroke-width="1.5"></path>
+<path class="stroke-primary/10 dark:stroke-white/10" d="M320 300 H500" stroke-width="1.5"></path>
+<path class="stroke-primary/10 dark:stroke-white/10" d="M320 440 C450 440, 450 300, 500 300" stroke-width="1.5"></path>
+<path class="stroke-primary/10 dark:stroke-white/10" d="M700 300 C750 300, 750 160, 880 160" stroke-width="1.5"></path>
+<path class="stroke-primary/10 dark:stroke-white/10" d="M700 300 H880" stroke-width="1.5"></path>
+<path class="stroke-primary/10 dark:stroke-white/10" d="M700 300 C750 300, 750 440, 880 440" stroke-width="1.5"></path>
+<!-- Animated data flow: sources → Grace-X -->
+<path class="infra-flow-path" d="M320 160 C450 160, 450 300, 500 300" style="animation-delay:0s;"/>
+<path class="infra-flow-path" d="M320 300 H500" style="animation-delay:-0.67s;"/>
+<path class="infra-flow-path" d="M320 440 C450 440, 450 300, 500 300" style="animation-delay:-1.34s;"/>
+<!-- Sequential sweep: Grace-X → LLMs -->
+<path class="infra-llm-path" d="M700 300 C750 300, 750 160, 880 160" style="animation-delay:0s;"/>
+<path class="infra-llm-path" d="M700 300 H880" style="animation-delay:3s;"/>
+<path class="infra-llm-path" d="M700 300 C750 300, 750 440, 880 440" style="animation-delay:6s;"/>
+</svg>
+<div class="flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+<!-- Left: Company Data -->
+<div class="w-full lg:w-72 space-y-4">
+<p class="text-[11px] tracking-[0.3em] text-on-surface-variant dark:text-on-surface-variant-dark uppercase mb-6 text-center font-bold">Your Company Data</p>
+<div class="relative bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center gap-4 shadow-sm transition-transform hover:-translate-y-1">
+<span class="infra-activity-dot" style="animation-delay:0s;"></span>
+<div class="w-9 h-9 flex items-center justify-center rounded-lg bg-primary/5 dark:bg-primary-dark/20">
+<img src="logos/slack_logo.png" alt="Slack" class="w-5 h-5 object-contain"/>
+</div>
+<div>
+<p class="text-sm font-bold text-primary dark:text-on-surface-dark">Slack</p>
+<p class="text-[10px] text-on-surface-variant dark:text-on-surface-variant-dark font-medium uppercase tracking-wider">Communication</p>
+</div>
+</div>
+<div class="relative bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center gap-4 shadow-sm transition-transform hover:-translate-y-1">
+<span class="infra-activity-dot" style="animation-delay:-0.6s;"></span>
+<div class="w-9 h-9 flex items-center justify-center rounded-lg bg-primary/5 dark:bg-primary-dark/20">
+<img src="logos/Jira_logo.png" alt="Jira" class="w-5 h-5 object-contain"/>
+</div>
+<div>
+<p class="text-sm font-bold text-primary dark:text-on-surface-dark">Jira</p>
+<p class="text-[10px] text-on-surface-variant dark:text-on-surface-variant-dark font-medium uppercase tracking-wider">Management</p>
+</div>
+</div>
+<div class="relative bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center gap-4 shadow-sm transition-transform hover:-translate-y-1">
+<span class="infra-activity-dot" style="animation-delay:-1.2s;"></span>
+<div class="w-9 h-9 flex items-center justify-center rounded-lg bg-primary/5 dark:bg-primary-dark/20">
+<span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark text-lg">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary dark:text-on-surface-dark">Internal Docs</p>
+<p class="text-[10px] text-on-surface-variant dark:text-on-surface-variant-dark font-medium uppercase tracking-wider">Knowledge</p>
+</div>
+</div>
+</div>
+<!-- Center: GraceX Brain -->
+<div class="w-full lg:w-[460px]">
+<div class="bg-white dark:bg-surface-container-highest-dark border border-primary/10 dark:border-outline-variant-dark/20 rounded-[40px] p-10 shadow-[0_32px_64px_-16px_rgba(5,26,73,0.12)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.4)] text-center relative overflow-hidden transition-all hover:shadow-[0_48px_80px_-24px_rgba(5,26,73,0.15)]">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-primary-vibrant/30 dark:via-primary-dark/30 to-transparent"></div>
+<div class="w-20 h-20 mx-auto mb-8 flex items-center justify-center bg-background dark:bg-surface-dark rounded-3xl shadow-sm border border-primary/10 dark:border-outline-variant-dark/20 overflow-hidden">
+<img alt="Grace-X Logo" class="w-12 h-12 object-contain" src="logos/logo.png"/>
+</div>
+<h3 class="font-headline-md text-2xl text-primary dark:text-on-background-dark font-bold mb-2">Grace-X</h3>
+<p class="text-[10px] text-white font-bold tracking-[0.3em] uppercase mb-10 inline-block px-3 py-1 rounded-full bg-black dark:bg-white dark:text-black">Company Brain</p>
+<div class="flex flex-wrap justify-center gap-2">
+<span class="px-4 py-1.5 bg-primary/5 dark:bg-surface-bright/20 border border-primary/10 dark:border-outline-variant-dark/20 rounded-full text-[11px] font-bold text-primary dark:text-on-surface-dark">Memory</span>
+<span class="px-4 py-1.5 bg-primary/5 dark:bg-surface-bright/20 border border-primary/10 dark:border-outline-variant-dark/20 rounded-full text-[11px] font-bold text-primary dark:text-on-surface-dark">Knowledge Graph</span>
+<span class="px-4 py-1.5 bg-primary/5 dark:bg-surface-bright/20 border border-primary/10 dark:border-outline-variant-dark/20 rounded-full text-[11px] font-bold text-primary dark:text-on-surface-dark">Privacy Gateway</span>
+</div>
+</div>
+</div>
+<!-- Right: LLMs -->
+<div class="w-full lg:w-72 space-y-4">
+<p class="text-[11px] tracking-[0.3em] text-on-surface-variant dark:text-on-surface-variant-dark uppercase mb-6 text-center font-bold">Any Frontier LLM</p>
+<div class="bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center justify-between shadow-sm transition-transform hover:-translate-y-1">
+<div>
+<p class="text-sm font-bold text-primary dark:text-on-surface-dark">GPT</p>
+<p class="text-[10px] text-on-surface-variant dark:text-on-surface-variant-dark font-medium uppercase tracking-wider">OpenAI</p>
+</div>
+<img src="logos/openai_logo.svg" alt="OpenAI" class="w-5 h-5 object-contain"/>
+</div>
+<div class="bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center justify-between shadow-sm transition-transform hover:-translate-y-1">
+<div>
+<p class="text-sm font-bold text-primary dark:text-on-surface-dark">Claude</p>
+<p class="text-[10px] text-on-surface-variant dark:text-on-surface-variant-dark font-medium uppercase tracking-wider">Anthropic</p>
+</div>
+<img src="logos/claude_logo.svg" alt="Claude" class="w-5 h-5 object-contain"/>
+</div>
+<div class="bg-white/80 dark:bg-surface-container-high-dark/80 backdrop-blur-md border border-primary/10 dark:border-outline-variant-dark/20 rounded-xl p-4 flex items-center justify-between shadow-sm transition-transform hover:-translate-y-1">
+<div>
+<p class="text-sm font-bold text-primary dark:text-on-surface-dark">Gemini</p>
+<p class="text-[10px] text-on-surface-variant dark:text-on-surface-variant-dark font-medium uppercase tracking-wider">Google Cloud</p>
+</div>
+<img src="logos/gemini_logo.webp" alt="Gemini" class="w-5 h-5 object-contain"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How Grace-X Works Section -->
+<section id="gx-section" class="max-w-[1280px] mx-auto px-8 py-20 overflow-hidden border-t border-primary/5 dark:border-outline-variant-dark/10">
+<div class="text-start mb-16 max-w-4xl">
+<h2 class="font-display-xl text-[40px] md:text-[48px] text-primary dark:text-on-background-dark mb-6 leading-tight text-balance font-bold">
+                How <span class="text-primary-vibrant dark:text-primary-dark">Grace-X</span> works
+            </h2>
+<p class="font-body-lg text-lg text-on-surface-variant dark:text-on-surface-variant-dark max-w-2xl leading-relaxed">
+                A vertically integrated architecture designed for the era of sovereign intelligence. From persistent memory to cryptographic governance.
+            </p>
+</div>
+<!-- Circular Wheel -->
+<div id="gx-wrap" class="relative mx-auto select-none" style="height:580px;max-width:680px;">
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 680 580" preserveAspectRatio="xMidYMid meet">
+<defs>
+<marker id="gx-ah" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+<path d="M0,1 L6,3.5 L0,6Z" fill="rgba(255,255,255,0.3)"/>
+</marker>
+</defs>
+<circle cx="340" cy="290" r="210" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 8"/>
+<path class="gx-arrow-path" d="M189,144 A210,210,0,0,1,248,101" marker-end="url(#gx-ah)" style="animation-delay:0s;"/>
+<path class="gx-arrow-path" d="M155,389 A210,210,0,0,1,132,319" marker-end="url(#gx-ah)" style="animation-delay:-0.8s;"/>
+<path class="gx-arrow-path" d="M376,497 A210,210,0,0,1,304,497" marker-end="url(#gx-ah)" style="animation-delay:-1.6s;"/>
+<path class="gx-arrow-path" d="M548,319 A210,210,0,0,1,525,389" marker-end="url(#gx-ah)" style="animation-delay:-2.4s;"/>
+<path class="gx-arrow-path" d="M432,101 A210,210,0,0,1,491,144" marker-end="url(#gx-ah)" style="animation-delay:-3.2s;"/>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div id="gx-info" class="text-center" style="max-width:185px;transition:opacity 0.3s ease;">
+<p id="gx-c-num" class="font-label-sm text-[10px] tracking-[0.2em] uppercase mb-3" style="color:#7C3AED;"></p>
+<p id="gx-c-title" class="font-headline-md text-headline-md text-primary dark:text-on-surface-dark mb-3"></p>
+<p id="gx-c-flow" class="font-label-sm text-[10px] uppercase tracking-widest mb-3 text-on-surface-variant dark:text-on-surface-variant-dark"></p>
+<p id="gx-c-desc" class="text-on-surface-variant dark:text-on-surface-variant-dark" style="font-size:13px;line-height:1.65;font-family:'Inter',sans-serif;"></p>
+</div>
+</div>
+<div id="gx-n0" class="gx-node absolute" onclick="gxGoTo(0)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div class="flex flex-col items-center text-center" style="gap:10px;">
+<div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
+<span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">terminal</span>
+</div>
+<p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Input</p>
+</div>
+</div>
+<div id="gx-n1" class="gx-node absolute" onclick="gxGoTo(1)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div class="flex flex-col items-center text-center" style="gap:10px;">
+<div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
+<span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">lock</span>
+</div>
+<p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Privacy Layer</p>
+</div>
+</div>
+<div id="gx-n2" class="gx-node absolute" onclick="gxGoTo(2)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div class="flex flex-col items-center text-center" style="gap:10px;">
+<div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
+<span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">language</span>
+</div>
+<p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Global LLM</p>
+</div>
+</div>
+<div id="gx-n3" class="gx-node absolute" onclick="gxGoTo(3)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div class="flex flex-col items-center text-center" style="gap:10px;">
+<div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
+<span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">lock_open</span>
+</div>
+<p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">De-process</p>
+</div>
+</div>
+<div id="gx-n4" class="gx-node absolute" onclick="gxGoTo(4)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div class="flex flex-col items-center text-center" style="gap:10px;">
+<div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
+<span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">output</span>
+</div>
+<p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Output</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 mt-8">
+<button onclick="gxPrev()" class="w-10 h-10 flex items-center justify-center border border-primary/10 dark:border-white/10 rounded-lg text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary dark:hover:text-on-surface-dark hover:border-primary/20 dark:hover:border-white/20 transition-all duration-300">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+</button>
+<button onclick="gxNext()" class="w-10 h-10 flex items-center justify-center border border-primary/10 dark:border-white/10 rounded-lg text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary dark:hover:text-on-surface-dark hover:border-primary/20 dark:hover:border-white/20 transition-all duration-300">
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-[1280px] mx-auto px-8 py-20 text-center border-t border-primary/5 dark:border-outline-variant-dark/10">
+<h2 id="cta-heading" class="font-display-xl text-[40px] md:text-[48px] text-primary dark:text-on-background-dark mb-10 leading-tight text-balance font-bold">
+            Bring AI into the business without giving the business away.
+        </h2>
+<div id="cta-btn-area" class="flex justify-center">
+  <button onclick="expandCtaForm()" class="bg-white text-black px-12 py-5 rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-all hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+    Get in Touch
+  </button>
+</div>
+<div id="cta-form-container">
+  <div class="max-w-lg mx-auto pt-10 text-left">
+    <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Nome</label>
+          <input type="text" name="nome" required placeholder="Mario"
+                 class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors">
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Cognome</label>
+          <input type="text" name="cognome" required placeholder="Rossi"
+                 class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors">
+        </div>
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Email</label>
+        <input type="email" name="email" required placeholder="mario@azienda.it"
+               class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors">
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Messaggio</label>
+        <textarea name="messaggio" rows="4" required placeholder="Come possiamo aiutarti?"
+                  class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors resize-none"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-primary-vibrant dark:bg-primary-dark text-white py-3 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+        Invia messaggio
+      </button>
+      <button type="button" onclick="collapseCtaForm()" class="w-full py-3 rounded font-semibold text-sm tracking-wide border border-outline-variant dark:border-white/10 text-on-surface-variant dark:text-on-surface-variant-dark hover:border-primary dark:hover:border-white/30 hover:text-primary dark:hover:text-on-surface-dark transition-all cursor-pointer mt-1">
+        Annulla
+      </button>
+    </form>
+    <div id="contact-success" class="hidden text-center py-8">
+      <p class="text-3xl mb-3">✓</p>
+      <p class="font-bold text-primary dark:text-on-surface-dark" style="font-family:'Space Grotesk',sans-serif">Messaggio inviato!</p>
+      <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark mt-1">Ti contatteremo al più presto.</p>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-dark border-t border-primary/5 dark:border-outline-variant-dark/20 transition-colors">
+<div class="max-w-[1280px] mx-auto px-8 py-10">
+<div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-12">
+<div class="max-w-md">
+<div class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-primary-dark mb-4">
+                    Grace-X
+                </div>
+<p class="text-xs font-bold text-on-surface-variant dark:text-on-surface-variant-dark tracking-[0.15em] uppercase mb-4">Privacy-preserving brain for enterprise AI</p>
+</div>
+<div class="flex flex-col gap-1 md:text-right">
+<p class="text-xs text-on-surface-variant dark:text-on-surface-variant-dark opacity-70">Viale Luca Gaurico 9/11 — 00143 Roma (RM)</p>
+<p class="text-xs text-on-surface-variant dark:text-on-surface-variant-dark opacity-70">PEC: <a href="mailto:gracextechnologiessrls@legalmail.it" class="hover:text-primary dark:hover:text-on-surface-dark transition-colors">gracextechnologiessrls@legalmail.it</a></p>
+</div>
+</div>
+<div class="pt-6 border-t border-primary/10 dark:border-outline-variant-dark/20 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-[10px] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase tracking-[0.2em] opacity-60">© 2026 GRACE-X AI. ALL RIGHTS RESERVED.</span>
+</div>
+</div>
+</footer>
+<script>
+    const html = document.documentElement;
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            html.classList.add('dark');
+            html.classList.remove('light');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            html.classList.add('light');
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Initialization
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (systemPrefersDark) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light');
+    }
+
+    // System preference listener
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+</script>
+<script>
+(function(){
+var T=5,INT=5000,ai=0,tmr=null;
+var DATA=[
+  {num:'01',title:'Input',flow:'',desc:'Raw data entering the Grace-X system.'},
+  {num:'02',title:'Privacy Layer',flow:'Prompt Request →',desc:'Pseudonymization, Encryption and Memory Graph processing.'},
+  {num:'03',title:'Global LLM',flow:'Prompt Request →',desc:'Cloud or on-device model processes the anonymized prompt.'},
+  {num:'04',title:'De-process',flow:'← Prompt Answer',desc:'De-Encryption and De-anonymization of the model response.'},
+  {num:'05',title:'Output',flow:'← Prompt Answer',desc:'Private, processed result returned to the user.'}
+];
+var R=210;
+function calcPos(offset){
+  var a=(-offset*72-90)*Math.PI/180;
+  return {x:+(R*Math.cos(a)).toFixed(2),y:+(R*Math.sin(a)).toFixed(2)};
+}
+function render(anim){
+  document.querySelectorAll('.gx-node').forEach(function(nd,i){
+    var off=((i-ai)%T+T)%T;
+    var p=calcPos(off);
+    var active=off===0,near=off===1||off===T-1;
+    var sc=active?1.0:near?0.62:0.5;
+    var op=active?1:near?0.55:0.3;
+    nd.style.transition=anim?'transform .95s cubic-bezier(.4,0,.2,1),opacity .95s cubic-bezier(.4,0,.2,1)':'none';
+    nd.style.transform='translate(calc('+p.x+'px - 50%),calc('+p.y+'px - 50%)) scale('+sc+')';
+    nd.style.opacity=op;
+    nd.style.zIndex=active?10:near?5:1;
+    var c=nd.querySelector('.gx-circle'),ico=nd.querySelector('.gx-icon'),lbl=nd.querySelector('.gx-label');
+    if(c){c.style.borderColor=active?'rgba(124,58,237,.35)':'rgba(255,255,255,.08)';c.style.background=active?'#201f1f':'#1c1b1b';c.style.boxShadow=active?'0 0 28px rgba(124,58,237,.18)':'none';}
+    if(ico) ico.style.color=active?'#7C3AED':'#c4c7c8';
+    if(lbl) lbl.style.color=active?'#e5e2e1':'#888';
+  });
+}
+function updateInfo(){
+  var el=document.getElementById('gx-info');if(!el)return;
+  el.style.opacity='0';
+  setTimeout(function(){
+    var d=DATA[ai];
+    document.getElementById('gx-c-num').textContent=d.num;
+    document.getElementById('gx-c-title').textContent=d.title;
+    document.getElementById('gx-c-flow').textContent=d.flow;
+    document.getElementById('gx-c-desc').textContent=d.desc;
+    el.style.opacity='1';
+  },280);
+}
+function flashArrows(){
+  var paths=document.querySelectorAll('.gx-arrow-path');
+  paths.forEach(function(p){p.classList.add('lit');});
+  setTimeout(function(){paths.forEach(function(p){p.classList.remove('lit');});},900);
+}
+function goTo(n,anim){ai=((n%T)+T)%T;render(anim!==false);updateInfo();if(anim!==false)flashArrows();}
+function startAuto(){clearInterval(tmr);tmr=setInterval(function(){goTo(ai+1,true);},INT);}
+function stopAuto(){clearInterval(tmr);tmr=null;}
+window.gxGoTo=function(n){stopAuto();goTo(n,true);startAuto();};
+window.gxPrev=function(){stopAuto();goTo(ai-1,true);startAuto();};
+window.gxNext=function(){stopAuto();goTo(ai+1,true);startAuto();};
+goTo(0,false);
+startAuto();
+}());
+</script>
+
+<script>
+function expandCtaForm() {
+    var btnArea = document.getElementById('cta-btn-area');
+    var formArea = document.getElementById('cta-form-container');
+    btnArea.classList.add('hiding');
+    setTimeout(function() {
+        btnArea.style.display = 'none';
+        formArea.classList.add('is-open');
+        setTimeout(function() {
+            formArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 250);
+    }, 220);
+}
+function collapseCtaForm() {
+    var btnArea = document.getElementById('cta-btn-area');
+    var formArea = document.getElementById('cta-form-container');
+    formArea.classList.remove('is-open');
+    setTimeout(function() {
+        btnArea.style.display = '';
+        btnArea.classList.remove('hiding');
+        document.getElementById('contact-form').classList.remove('hidden');
+        document.getElementById('contact-success').classList.add('hidden');
+        document.getElementById('contact-form').reset();
+    }, 220);
+}
+function handleContactSubmit(e) {
+    e.preventDefault();
+    // Email sending logic — to be implemented
+    document.getElementById('contact-form').classList.add('hidden');
+    document.getElementById('contact-success').classList.remove('hidden');
+}
+</script>
+</body></html>
