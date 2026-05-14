@@ -8,7 +8,7 @@ Single-file static landing page for **Grace-X**, a privacy-preserving enterprise
 
 ## Running the Page
 
-Open `code.html` directly in a browser, or serve it locally:
+Open `index.html` directly in a browser, or serve it locally:
 
 ```
 npx serve .
@@ -18,11 +18,9 @@ python -m http.server 8080
 
 ## Architecture
 
-`code.html` is a fully self-contained file with three logical zones:
+`index.html` is a fully self-contained file with three logical zones:
 
 1. **`<head>` / Tailwind config** (`<script id="tailwind-config">`) — the entire design token system lives here as a `tailwind.config` object. All custom colors, font sizes, border radii, and spacing are defined inline. Edit tokens here to propagate changes site-wide.
-
-> `index.html` is the GitHub Pages entry point. The file was previously named `code.html`; references to that name in older notes refer to the same file.
 
 2. **`<body>` sections** — sequential marketing sections, each commented with their name. Order: `TopNavBar` → `Hero` → `Problem` → `Solution` → `Infrastructure` → `Enterprise Superintelligence` → `How Grace-X Works` → `Final CTA` → `Footer`. The layout uses a `max-w-[1280px] mx-auto` container throughout. All sections from Hero through Final CTA are wrapped in a `<main>` element.
 
@@ -41,7 +39,7 @@ The canonical design reference is `DESIGN.md`. Key rules:
 - **Radius**: 4px (`rounded`) globally; 12px (`rounded-xl`) for cards; 40px (`rounded-[40px]`) only for the hero brain card.
 - **Spacing**: 120px section gaps per spec; implemented as `py-20` (80px) in most sections. The custom `section-gap: 96px` token in Tailwind config is defined but not used.
 
-## Known Token Drift (DESIGN.md vs code.html)
+## Known Token Drift (DESIGN.md vs index.html)
 
 | Spec | Implementation |
 |------|---------------|
@@ -50,7 +48,7 @@ The canonical design reference is `DESIGN.md`. Key rules:
 | `primary` navy: `#0A192F` | `#051A49` (darker) |
 | Section gap: 120px | `py-20` ≈ 80px |
 
-When reconciling design and code, follow `code.html`'s Tailwind config as the live source of truth.
+When reconciling design and code, follow `index.html`'s Tailwind config as the live source of truth.
 
 ## Dark Mode
 
@@ -70,7 +68,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 ## Inline JavaScript Blocks
 
-`code.html` contains three `<script>` tags at the bottom of `<body>`, in this order:
+`index.html` contains three `<script>` tags at the bottom of `<body>`, in this order:
 
 1. **Theme script** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. Call `applyTheme('dark'|'light')` to switch themes programmatically.
 

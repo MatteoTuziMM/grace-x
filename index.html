@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" href="logos/logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -617,6 +618,9 @@
         Annulla
       </button>
     </form>
+    <p id="contact-error" class="hidden text-center text-sm text-red-500 mt-2">
+      Errore nell'invio. Riprova o scrivici a <a href="mailto:luca.lustri@grace-x.ai" class="underline">luca.lustri@grace-x.ai</a>.
+    </p>
     <div id="contact-success" class="hidden text-center py-8">
       <p class="text-3xl mb-3">✓</p>
       <p class="font-bold text-primary dark:text-on-surface-dark" style="font-family:'Space Grotesk',sans-serif">Messaggio inviato!</p>
@@ -679,6 +683,8 @@
             applyTheme(e.matches ? 'dark' : 'light');
         }
     });
+
+    emailjs.init({ publicKey: 'Aetm3nixrn8QoM3Zb' });
 </script>
 <script>
 (function(){
@@ -762,14 +768,28 @@ function collapseCtaForm() {
         btnArea.classList.remove('hiding');
         document.getElementById('contact-form').classList.remove('hidden');
         document.getElementById('contact-success').classList.add('hidden');
+        document.getElementById('contact-error').classList.add('hidden');
         document.getElementById('contact-form').reset();
     }, 220);
 }
 function handleContactSubmit(e) {
     e.preventDefault();
-    // Email sending logic — to be implemented
-    document.getElementById('contact-form').classList.add('hidden');
-    document.getElementById('contact-success').classList.remove('hidden');
+    var btn = e.target.querySelector('button[type="submit"]');
+    var originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Invio in corso…';
+    document.getElementById('contact-error').classList.add('hidden');
+
+    emailjs.sendForm('service_f2w7adi', 'template_2c9xmz9', e.target)
+        .then(function() {
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('contact-success').classList.remove('hidden');
+        })
+        .catch(function() {
+            btn.disabled = false;
+            btn.textContent = originalText;
+            document.getElementById('contact-error').classList.remove('hidden');
+        });
 }
 </script>
 </body></html>
