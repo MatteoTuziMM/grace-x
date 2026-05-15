@@ -132,8 +132,12 @@
 <a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#gx-section" onclick="event.preventDefault();document.getElementById('gx-section').scrollIntoView({behavior:'smooth',block:'start'})">Technology</a>
 <a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#footer" onclick="event.preventDefault();document.getElementById('footer').scrollIntoView({behavior:'smooth',block:'start'})">Contact</a>
 </nav>
-<div>
-<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-white text-black px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
+<div class="flex items-center gap-3">
+<button onclick="toggleTheme()" id="theme-toggle-btn" class="p-2 rounded text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary-vibrant dark:hover:text-primary-dark hover:bg-primary/5 dark:hover:bg-white/5 transition-colors duration-300 cursor-pointer" aria-label="Toggle theme">
+<span class="material-symbols-outlined dark:hidden" style="font-size:20px">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block" style="font-size:20px">light_mode</span>
+</button>
+<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-primary dark:bg-white text-on-primary dark:text-black px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
 </div>
 </div>
 </header>
@@ -148,7 +152,7 @@
                 A human-like enterprise memory and knowledge graph platform enabling privacy-preserving AI interactions in regulated industries.
             </p>
 <div class="flex flex-wrap gap-5">
-<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-white text-black px-10 py-4 rounded-lg font-bold text-sm tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer">
+<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-primary dark:bg-white text-on-primary dark:text-black px-10 py-4 rounded-lg font-bold text-sm tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer">
                     Get in Touch
                 </button>
 </div>
@@ -482,7 +486,7 @@
             Bring AI into the business without giving the business away.
         </h2>
 <div id="cta-btn-area" class="flex justify-center">
-  <button onclick="expandCtaForm()" class="bg-white text-black px-12 py-5 rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-all hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+  <button onclick="expandCtaForm()" class="bg-primary dark:bg-white text-on-primary dark:text-black px-12 py-5 rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-all hover:shadow-xl hover:-translate-y-1 cursor-pointer">
     Get in Touch
   </button>
 </div>
@@ -514,7 +518,7 @@
       <button type="submit" class="w-full bg-primary-vibrant dark:bg-primary-dark text-white py-3 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
         Invia messaggio
       </button>
-      <button type="button" onclick="collapseCtaForm()" class="w-full py-3 rounded font-semibold text-sm tracking-wide border border-outline-variant dark:border-white/10 text-on-surface-variant dark:text-on-surface-variant-dark hover:border-primary dark:hover:border-white/30 hover:text-primary dark:hover:text-on-surface-dark transition-all cursor-pointer mt-1">
+      <button type="button" onclick="collapseCtaForm()" class="w-full py-3 rounded font-semibold text-sm tracking-wide border border-outline dark:border-white/10 text-on-surface-variant dark:text-on-surface-variant-dark hover:border-primary dark:hover:border-white/30 hover:text-primary dark:hover:text-on-surface-dark transition-all cursor-pointer mt-1">
         Annulla
       </button>
     </form>

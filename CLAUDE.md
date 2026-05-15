@@ -38,7 +38,7 @@ Hosted on GitHub Pages with a custom domain configured via `CNAME` → **grace-x
 
 The canonical design reference is `DESIGN.md`. Key rules:
 
-- **Colors**: Warm parchment background (`#FDFBF7`) paired with deep navy primary (`#051A49` / `#10327D`). Gold/yellow (`#FBC02D`) is reserved for decorative horizontal rules only — never for buttons. Turquoise is **not used** in the current implementation and must not be introduced.
+- **Colors**: Warm parchment background (`#FDFBF7`) paired with deep navy primary (`#051A49`). `primary-vibrant` (`#1E0040`) is the interactive accent — used for the CTA form submit button, hover text states, and active dot indicators (not `primary`). Gold/yellow (`#FBC02D`) is reserved for decorative horizontal rules only — never for buttons. Turquoise is **not used** in the current implementation and must not be introduced.
 - **Typography**:
   - `Space Grotesk` — all headlines, always with tight/negative letter-spacing
   - `Inter` — body copy and labels (DESIGN.md specifies Hanken Grotesk; Inter is the current implementation)
@@ -64,9 +64,17 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 **Exception — Wheel Carousel:** The "How Grace-X Works" section (`#gx-section`) is intentionally always dark-styled. The JavaScript hard-codes near-black backgrounds (`#201f1f`, `#1c1b1b`) for orbit nodes regardless of page theme. This is by design; do not attempt to make the carousel node styles theme-aware.
 
+**Mobile:** The carousel orbit radius is 210px on desktop and reduces to 128px on mobile (`md:` breakpoint). Node sizing, opacity, and scale logic are unchanged; only the radius changes.
+
 ## Conventions
 
-- Tailwind utility classes only — no custom CSS in `index.html`. All custom CSS lives in `style.css` (`material-symbols-outlined` font settings, `blend-bg` gradient masks, `mask-radial`, `text-balance`, animations, form transitions).
+- Tailwind utility classes only — no custom CSS in `index.html`. All custom CSS lives in `style.css`:
+  - `material-symbols-outlined` — icon font variation settings (weight 300, fill 0)
+  - `.blend-bg` — edge-fading gradient overlay (white/dark edges, transparent center) used to blend image regions into the page background
+  - `.mask-radial` — radial mask that fades element edges to transparent, used on the orbit wheel background circle
+  - `.text-balance` — `text-wrap: balance` for multi-line headline reflow
+  - Keyframe animations: `gx-flow` (wheel arc dashes), `infra-flow` (left→center paths), `infra-dot-blink` (source activity dots), `infra-llm-sweep` (center→LLM paths)
+  - CTA form open/close transitions (`#cta-btn-area`, `#cta-form-container`, `.hiding`, `.is-open`)
 - Tailwind is loaded from CDN with the `forms` and `container-queries` plugins: `<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">`. The `forms` plugin resets input default styles; `container-queries` adds `@container` variant support.
 - **EmailJS** (`@emailjs/browser@4`) is loaded from jsDelivr CDN in `<head>` and powers the contact form. It is initialized in the theme script block with a public key.
 - Icons use **Material Symbols Outlined** (`<span class="material-symbols-outlined">`), weight 300, fill 0.
@@ -98,5 +106,9 @@ All local images live in the `logos/` folder:
 - `logo.png` — Grace-X logo (favicon, navbar wordmark, Company Brain card)
 - `slack_logo.png`, `Jira_logo.png` — data source cards in Enterprise Superintelligence section
 - `openai_logo.svg`, `claude_logo.svg`, `gemini_logo.webp` — LLM cards (right column)
+
+- `openai_logo_old.webp` — unused older asset; superseded by `openai_logo.svg`
+
+`screen.png` (root) is a static page screenshot, not used in the page itself.
 
 External images (lh3.googleusercontent.com AIDA URLs) are placeholder assets used in the Solution section; replace with real assets before production.

@@ -116,6 +116,10 @@ function collapseCtaForm() {
         document.getElementById('contact-form').reset();
     }, 220);
 }
+function toggleTheme() {
+    applyTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
+}
+
 function handleContactSubmit(e) {
     e.preventDefault();
     var btn = e.target.querySelector('button[type="submit"]');
