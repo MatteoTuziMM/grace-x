@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Single-file static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. The entire site lives in `index.html` — no build system, no framework, no package manager.
+Static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. No build system, no framework, no package manager. Three files:
+
+- `index.html` — HTML structure + Tailwind config inline
+- `style.css` — all custom CSS (animations, component classes, form transitions)
+- `main.js` — all JavaScript (theme, wheel carousel, CTA form + EmailJS)
 
 ## Running the Page
 
@@ -16,6 +20,10 @@ npx serve .
 python -m http.server 8080
 ```
 
+## Deployment
+
+Hosted on GitHub Pages with a custom domain configured via `CNAME` → **grace-x.ai**. No CI/CD pipeline; pushing to `main` deploys automatically.
+
 ## Architecture
 
 `index.html` is a fully self-contained file with three logical zones:
@@ -24,7 +32,7 @@ python -m http.server 8080
 
 2. **`<body>` sections** — sequential marketing sections, each commented with their name. Order: `TopNavBar` → `Hero` → `Problem` → `Solution` → `Infrastructure` → `Enterprise Superintelligence` → `How Grace-X Works` → `Final CTA` → `Footer`. The layout uses a `max-w-[1280px] mx-auto` container throughout. All sections from Hero through Final CTA are wrapped in a `<main>` element.
 
-3. **Theme script** (bottom of `<body>`) — reads/writes `localStorage.theme`, applies `dark`/`light` class to `<html>`. Initializes from localStorage or system preference, and listens for system preference changes. No UI toggle is wired up; add one by calling `applyTheme('dark'|'light')`.
+3. **`main.js`** (loaded at bottom of `<body>`) — reads/writes `localStorage.theme`, applies `dark`/`light` class to `<html>`. Initializes from localStorage or system preference, and listens for system preference changes. No UI toggle is wired up; add one by calling `applyTheme('dark'|'light')`.
 
 ## Design System (`DESIGN.md`)
 
@@ -58,26 +66,27 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 ## Conventions
 
-- Tailwind utility classes only — no custom CSS except the small `<style>` block for `material-symbols-outlined` font variation settings, `blend-bg` gradient masks, `mask-radial`, and `text-balance`.
+- Tailwind utility classes only — no custom CSS in `index.html`. All custom CSS lives in `style.css` (`material-symbols-outlined` font settings, `blend-bg` gradient masks, `mask-radial`, `text-balance`, animations, form transitions).
 - Tailwind is loaded from CDN with the `forms` and `container-queries` plugins: `<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">`. The `forms` plugin resets input default styles; `container-queries` adds `@container` variant support.
+- **EmailJS** (`@emailjs/browser@4`) is loaded from jsDelivr CDN in `<head>` and powers the contact form. It is initialized in the theme script block with a public key.
 - Icons use **Material Symbols Outlined** (`<span class="material-symbols-outlined">`), weight 300, fill 0.
 - Section structure: `<section>` with optional full-width background → inner `<div class="max-w-[1280px] mx-auto px-8 py-20">`.
 - Interactive hover states: `hover:-translate-y-1` lift + shadow increase is the standard micro-interaction pattern.
 - **Nav scroll links:** "Platform" scrolls to `#platform-section` (Enterprise Superintelligence); "Technology" scrolls to `#gx-section` (How Grace-X Works). Both use `scrollIntoView({behavior:'smooth', block:'start'})`.
 - **Enterprise Superintelligence SVG** uses `preserveAspectRatio="none"` and `z-20`. The `none` value is critical — without it the default `xMidYMid meet` scales the SVG by height, creating large horizontal margins that misalign path coordinates with the HTML card layout.
 
-## Inline JavaScript Blocks
+## main.js
 
-`index.html` contains three `<script>` tags at the bottom of `<body>`, in this order:
+`main.js` is loaded via `<script src="main.js"></script>` at the bottom of `<body>` (after all DOM elements). It contains three logical sections in order:
 
-1. **Theme script** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. Call `applyTheme('dark'|'light')` to switch themes programmatically.
+1. **Theme + EmailJS init** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. Calls `emailjs.init({ publicKey: '...' })` to initialize the EmailJS client (requires the EmailJS CDN already loaded in `<head>`).
 
 2. **Wheel Carousel IIFE** — drives the "How Grace-X Works" section (`#gx-section`). Five nodes (`#gx-n0`–`#gx-n4`, class `.gx-node`) are positioned by polar offset from center at radius 210px. Active node: scale 1.0/opacity 1/violet glow. Adjacent nodes: scale 0.62/opacity 0.55. Far nodes: scale 0.5/opacity 0.3. Center panel `#gx-info` fades between `#gx-c-num`, `#gx-c-title`, `#gx-c-flow`, `#gx-c-desc`. Global functions: `gxGoTo(n)`, `gxPrev()`, `gxNext()`. Auto-advances every 5s; clicking a node resets the timer.
 
-3. **CTA form script** — three global functions manage the Final CTA inline contact form:
+3. **CTA form** — three global functions manage the Final CTA inline contact form:
    - `expandCtaForm()` — hides `#cta-btn-area`, reveals `#cta-form-container` with a CSS `is-open` class, smooth-scrolls into view.
-   - `collapseCtaForm()` — reverses the above and resets the form.
-   - `handleContactSubmit(e)` — prevents default, shows `#contact-success`, hides `#contact-form`. Email-sending logic is a stub; implement here.
+   - `collapseCtaForm()` — reverses the above, resets the form, and hides both `#contact-success` and `#contact-error`.
+   - `handleContactSubmit(e)` — prevents default, disables the submit button with "Invio in corso…" feedback, calls `emailjs.sendForm('service_f2w7adi', 'template_2c9xmz9', form)`. On success: shows `#contact-success`, hides `#contact-form`. On failure: re-enables the button and shows `#contact-error`.
 
 ## UI Copy Language
 

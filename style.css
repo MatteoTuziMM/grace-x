@@ -1,0 +1,130 @@
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        *, *::before, *::after {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body {
+            background-color: #FDFBF7;
+            color: #0A192F;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .dark body {
+            background-color: #121316;
+            color: #e3e2e6;
+        }
+
+        .mask-radial {
+            mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+        }
+
+        .blend-bg {
+            background: linear-gradient(to right, #FDFBF7 0%, transparent 40%, transparent 60%, #FDFBF7 100%),
+                        linear-gradient(to bottom, #FDFBF7 0%, transparent 20%, transparent 80%, #FDFBF7 100%);
+        }
+
+        .dark .blend-bg {
+            background: linear-gradient(to right, #121316 0%, transparent 40%, transparent 60%, #121316 100%),
+                        linear-gradient(to bottom, #121316 0%, transparent 20%, transparent 80%, #121316 100%);
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        /* ── Circular Wheel ── */
+        @keyframes gx-flow {
+            to { stroke-dashoffset: -60; }
+        }
+        .gx-arrow-path {
+            fill: none;
+            stroke: rgba(5,26,73,0.18);
+            stroke-width: 1.2;
+            stroke-dasharray: 4 8;
+            animation: gx-flow 4s linear infinite;
+            transition: stroke 0.4s, stroke-width 0.4s;
+        }
+        .dark .gx-arrow-path {
+            stroke: rgba(255,255,255,0.2);
+        }
+        .gx-arrow-path.lit {
+            stroke: rgba(124,58,237,0.55);
+            stroke-width: 1.6;
+        }
+
+        /* ── Enterprise Infra Flow Animation ── */
+        @keyframes infra-flow {
+            to { stroke-dashoffset: -84; }
+        }
+        .infra-flow-path {
+            fill: none;
+            stroke: rgba(30,0,64,0.55);
+            stroke-width: 2;
+            stroke-dasharray: 4 10;
+            stroke-linecap: round;
+            animation: infra-flow 2.5s linear infinite;
+        }
+        .dark .infra-flow-path {
+            stroke: rgba(124,58,237,0.65);
+        }
+        @keyframes infra-dot-blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.7); }
+        }
+        .infra-activity-dot {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 9999px;
+            background: rgba(30,0,64,0.45);
+            animation: infra-dot-blink 1.8s ease-in-out infinite;
+        }
+        .dark .infra-activity-dot {
+            background: rgba(124,58,237,0.65);
+        }
+
+        /* ── LLM Sequential Sweep Animation ── */
+        @keyframes infra-llm-sweep {
+            0%          { stroke-dashoffset: 100; }
+            33%         { stroke-dashoffset: -380; }
+            33.1%, 100% { stroke-dashoffset: 100; }
+        }
+        .infra-llm-path {
+            fill: none;
+            stroke: rgba(30,0,64,0.35);
+            stroke-width: 2;
+            stroke-dasharray: 90 600;
+            stroke-linecap: round;
+            animation: infra-llm-sweep 9s linear infinite;
+            animation-fill-mode: backwards;
+        }
+        .dark .infra-llm-path {
+            stroke: rgba(124,58,237,0.4);
+        }
+
+        /* Contact form inline */
+        #cta-btn-area {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        #cta-btn-area.hiding {
+            opacity: 0;
+            transform: scale(0.85);
+            pointer-events: none;
+        }
+        #cta-form-container {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease 0.15s;
+        }
+        #cta-form-container.is-open {
+            max-height: 700px;
+            opacity: 1;
+        }
