@@ -42,7 +42,8 @@ var DATA=[
   {num:'04',title:'De-process',flow:'← Prompt Answer',desc:'De-Encryption and De-anonymization of the model response.'},
   {num:'05',title:'Output',flow:'← Prompt Answer',desc:'Private, processed result returned to the user.'}
 ];
-var R=210;
+var MQ=window.matchMedia('(max-width:767px)');
+var R=MQ.matches?170:210;
 function calcPos(offset){
   var a=(-offset*72-90)*Math.PI/180;
   return {x:+(R*Math.cos(a)).toFixed(2),y:+(R*Math.sin(a)).toFixed(2)};
@@ -89,6 +90,7 @@ window.gxPrev=function(){stopAuto();goTo(ai-1,true);startAuto();};
 window.gxNext=function(){stopAuto();goTo(ai+1,true);startAuto();};
 goTo(0,false);
 startAuto();
+MQ.addEventListener('change',function(e){R=e.matches?170:210;render(false);});
 }());
 
 function expandCtaForm() {
