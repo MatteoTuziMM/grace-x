@@ -51,6 +51,7 @@
         }
         .dark .gx-arrow-path {
             stroke: rgba(255,255,255,0.2);
+            marker-end: url(#gx-ah-dark);
         }
         .gx-arrow-path.lit {
             stroke: rgba(124,58,237,0.55);
