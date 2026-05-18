@@ -127,7 +127,7 @@ function handleContactSubmit(e) {
     var btn = e.target.querySelector('button[type="submit"]');
     var originalText = btn.textContent;
     btn.disabled = true;
-    btn.textContent = 'Invio in corso…';
+    btn.textContent = 'Sending…';
     document.getElementById('contact-error').classList.add('hidden');
 
     emailjs.sendForm('service_f2w7adi', 'template_2c9xmz9', e.target)

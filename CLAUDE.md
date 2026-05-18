@@ -32,7 +32,7 @@ Hosted on GitHub Pages with a custom domain configured via `CNAME` → **grace-x
 
 2. **`<body>` sections** — sequential marketing sections, each commented with their name. Order: `TopNavBar` → `Hero` → `Problem` → `Solution` → `Infrastructure` → `Enterprise Superintelligence` → `How Grace-X Works` → `Final CTA` → `Footer`. The layout uses a `max-w-[1280px] mx-auto` container throughout. All sections from Hero through Final CTA are wrapped in a `<main>` element.
 
-3. **`main.js`** (loaded at bottom of `<body>`) — reads/writes `localStorage.theme`, applies `dark`/`light` class to `<html>`. Initializes from localStorage or system preference, and listens for system preference changes. No UI toggle is wired up; add one by calling `applyTheme('dark'|'light')`.
+3. **`main.js`** (loaded at bottom of `<body>`) — reads/writes `localStorage.theme`, applies `dark`/`light` class to `<html>`. Initializes from localStorage or system preference, and listens for system preference changes. The NavBar has a `#theme-toggle-btn` that calls the global `toggleTheme()` (toggles between `'dark'` and `'light'`); to switch programmatically, call `applyTheme('dark'|'light')` directly.
 
 ## Design System (`DESIGN.md`)
 
@@ -64,7 +64,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 **Exception — Wheel Carousel:** The "How Grace-X Works" section (`#gx-section`) is intentionally always dark-styled. The JavaScript hard-codes near-black backgrounds (`#201f1f`, `#1c1b1b`) for orbit nodes regardless of page theme. This is by design; do not attempt to make the carousel node styles theme-aware.
 
-**Mobile:** The carousel orbit radius is 210px on desktop and reduces to 128px on mobile (`md:` breakpoint). Node sizing, opacity, and scale logic are unchanged; only the radius changes.
+**Mobile:** The carousel orbit radius is 210px on desktop and reduces to 170px on mobile (raw `(max-width:767px)` media query — equivalent to Tailwind `md:`). Node sizing, opacity, and scale logic are unchanged; only the radius changes.
 
 ## Conventions
 
@@ -87,7 +87,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 `main.js` is loaded via `<script src="main.js"></script>` at the bottom of `<body>` (after all DOM elements). It contains three logical sections in order:
 
-1. **Theme + EmailJS init** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. Calls `emailjs.init({ publicKey: '...' })` to initialize the EmailJS client (requires the EmailJS CDN already loaded in `<head>`).
+1. **Theme + EmailJS init** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. `toggleTheme()` (global) toggles between dark and light by reading the current `<html>` class. Calls `emailjs.init({ publicKey: '...' })` to initialize the EmailJS client (requires the EmailJS CDN already loaded in `<head>`).
 
 2. **Wheel Carousel IIFE** — drives the "How Grace-X Works" section (`#gx-section`). Five nodes (`#gx-n0`–`#gx-n4`, class `.gx-node`) are positioned by polar offset from center at radius 210px. Active node: scale 1.0/opacity 1/violet glow. Adjacent nodes: scale 0.62/opacity 0.55. Far nodes: scale 0.5/opacity 0.3. Center panel `#gx-info` fades between `#gx-c-num`, `#gx-c-title`, `#gx-c-flow`, `#gx-c-desc`. Global functions: `gxGoTo(n)`, `gxPrev()`, `gxNext()`. Auto-advances every 5s; clicking a node resets the timer.
 
@@ -98,7 +98,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 ## UI Copy Language
 
-The main page body copy is in English. The CTA contact form labels and UI strings are intentionally in Italian (`Nome`, `Cognome`, `Messaggio`, `Invia messaggio`, `Annulla`, `Ti contatteremo al più presto.`). Do not translate these to English.
+All copy — main page body and the CTA contact form — is in English.
 
 ## Assets
 
