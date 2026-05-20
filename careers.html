@@ -446,14 +446,18 @@
 
     function handleCareerSubmit(e) {
         e.preventDefault();
-        var btn = e.target.querySelector('[type="submit"]');
+        var form = e.target;
+        var btn = form.querySelector('[type="submit"]');
+        var fileInputs = Array.from(form.querySelectorAll('input[type="file"]'));
         btn.disabled = true;
         btn.textContent = 'Sending…';
-        emailjs.sendForm('service_f2w7adi', 'template_4nnifke', e.target)
+        fileInputs.forEach(function(i) { i.disabled = true; });
+        emailjs.sendForm('service_f2w7adi', 'template_4nnifke', form)
             .then(function() {
                 document.getElementById('careers-form').classList.add('hidden');
                 document.getElementById('careers-success').classList.remove('hidden');
             }, function() {
+                fileInputs.forEach(function(i) { i.disabled = false; });
                 btn.disabled = false;
                 btn.textContent = 'Submit Application';
                 var err = document.getElementById('careers-error');

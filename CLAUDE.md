@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. No build system, no framework, no package manager. Three files:
+Static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. No build system, no framework, no package manager. Four files:
 
 - `index.html` — HTML structure + Tailwind config inline
+- `careers.html` — standalone Careers page; shares the same Tailwind CDN, design tokens, and theme logic but has no carousel or contact form
 - `style.css` — all custom CSS (animations, component classes, form transitions)
 - `main.js` — all JavaScript (theme, wheel carousel, CTA form + EmailJS)
 
@@ -100,7 +101,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 ## UI Copy Language
 
-All copy — main page body and the CTA contact form — is in English.
+All copy — main page body and the CTA contact form — is in English. However, the contact form's `name` attributes are Italian (`nome`, `cognome`, `messaggio`); these are EmailJS template variables and must stay in sync with the template — do not rename them without updating the EmailJS template `template_2c9xmz9`.
 
 ## Assets
 
