@@ -70,6 +70,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 - Tailwind utility classes only — no custom CSS in `index.html`. All custom CSS lives in `style.css`:
   - `material-symbols-outlined` — icon font variation settings (weight 300, fill 0)
+  - `*, *::before, *::after` — global transition rule (`background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease`). This is what makes light↔dark switching animate smoothly. If a new CSS property needs to transition on theme change, add it to this rule.
   - `.blend-bg` — edge-fading gradient overlay (white/dark edges, transparent center) used to blend image regions into the page background
   - `.mask-radial` — radial mask that fades element edges to transparent, used on the orbit wheel background circle
   - `.text-balance` — `text-wrap: balance` for multi-line headline reflow
@@ -80,6 +81,7 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 - Icons use **Material Symbols Outlined** (`<span class="material-symbols-outlined">`), weight 300, fill 0.
 - Section structure: `<section>` with optional full-width background → inner `<div class="max-w-[1280px] mx-auto px-8 py-20">`.
 - Interactive hover states: `hover:-translate-y-1` lift + shadow increase is the standard micro-interaction pattern.
+- **Text selection styling:** `<body>` carries `selection:text-on-primary selection:bg-primary-vibrant/20 dark:selection:bg-primary-dark/40` — do not remove these or move selection styles to CSS.
 - **Nav scroll links:** "Platform" scrolls to `#platform-section` (Enterprise Superintelligence); "Technology" scrolls to `#gx-section` (How Grace-X Works). Both use `scrollIntoView({behavior:'smooth', block:'start'})`.
 - **Enterprise Superintelligence SVG** uses `preserveAspectRatio="none"` and `z-20`. The `none` value is critical — without it the default `xMidYMid meet` scales the SVG by height, creating large horizontal margins that misalign path coordinates with the HTML card layout.
 
@@ -87,11 +89,11 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 `main.js` is loaded via `<script src="main.js"></script>` at the bottom of `<body>` (after all DOM elements). It contains three logical sections in order:
 
-1. **Theme + EmailJS init** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. `toggleTheme()` (global) toggles between dark and light by reading the current `<html>` class. Calls `emailjs.init({ publicKey: '...' })` to initialize the EmailJS client (requires the EmailJS CDN already loaded in `<head>`).
+1. **Theme + EmailJS init** — `applyTheme(theme)` helper + initialization. Sets `class="dark"` or `class="light"` on `<html>`. The page ships with `<html class="light">` as the default. Calls `emailjs.init({ publicKey: '...' })` to initialize the EmailJS client (requires the EmailJS CDN already loaded in `<head>`).
 
 2. **Wheel Carousel IIFE** — drives the "How Grace-X Works" section (`#gx-section`). Five nodes (`#gx-n0`–`#gx-n4`, class `.gx-node`) are positioned by polar offset from center at radius 210px. Active node: scale 1.0/opacity 1/violet glow. Adjacent nodes: scale 0.62/opacity 0.55. Far nodes: scale 0.5/opacity 0.3. Center panel `#gx-info` fades between `#gx-c-num`, `#gx-c-title`, `#gx-c-flow`, `#gx-c-desc`. Global functions: `gxGoTo(n)`, `gxPrev()`, `gxNext()`. Auto-advances every 5s; clicking a node resets the timer.
 
-3. **CTA form** — three global functions manage the Final CTA inline contact form:
+3. **CTA form + `toggleTheme()`** — `toggleTheme()` (global, called by `#theme-toggle-btn`) is defined here, after the CTA helpers, despite belonging conceptually to section 1. Three global functions manage the Final CTA inline contact form:
    - `expandCtaForm()` — hides `#cta-btn-area`, reveals `#cta-form-container` with a CSS `is-open` class, smooth-scrolls into view.
    - `collapseCtaForm()` — reverses the above, resets the form, and hides both `#contact-success` and `#contact-error`.
    - `handleContactSubmit(e)` — prevents default, disables the submit button with "Invio in corso…" feedback, calls `emailjs.sendForm('service_f2w7adi', 'template_2c9xmz9', form)`. On success: shows `#contact-success`, hides `#contact-form`. On failure: re-enables the button and shows `#contact-error`.
@@ -112,3 +114,7 @@ All local images live in the `logos/` folder:
 `screen.png` (root) is a static page screenshot, not used in the page itself.
 
 External images (lh3.googleusercontent.com AIDA URLs) are placeholder assets used in the Solution section; replace with real assets before production.
+
+## Experimental Backups
+
+`_backups/` contains a saved experiment for a stream animation (RAF state machine) across three files: `main.stream-animation.js`, `style.stream-animation.css`, `index.stream-animation.html`. This work is not deployed and not wired into the current page. Do not delete these files and do not integrate them without explicit instruction.

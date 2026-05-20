@@ -1,0 +1,465 @@
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GRACE-X | Careers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="icon" type="image/png" href="logos/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init({ publicKey: 'Aetm3nixrn8QoM3Zb' });</script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#051A49",
+                        "primary-vibrant": "#1E0040",
+                        "purple-vibrant": "#3B0764",
+                        "on-primary": "#FDFBF7",
+                        "background": "#FDFBF7",
+                        "surface": "#F5F2EA",
+                        "on-surface": "#0A192F",
+                        "on-surface-variant": "#44566C",
+                        "outline": "#D1D5DB",
+                        "outline-variant": "#E5E7EB",
+                        "primary-container": "#E0F2F1",
+                        "on-primary-container": "#004D40",
+                        "secondary": "#051A49",
+                        "tertiary": "#FBC02D",
+                        "surface-container": "#F5F2EA",
+                        "surface-container-low": "#FAF8F2",
+                        "surface-container-high": "#EBE8E0",
+                        "surface-container-highest": "#E1DED5",
+                        "surface-variant": "#E1DED5",
+                        "inverse-surface": "#051A49",
+                        "inverse-on-surface": "#FDFBF7",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-lowest": "#0d0e11",
+                        "primary-container-dark": "#1a365d",
+                        "on-surface-dark": "#e3e2e6",
+                        "secondary-dark": "#ffe083",
+                        "on-secondary-fixed": "#231b00",
+                        "on-secondary": "#3c2f00",
+                        "primary-fixed": "#d6e3ff",
+                        "error": "#ffb4ab",
+                        "on-primary-container-dark": "#86a0cd",
+                        "on-tertiary": "#00354a",
+                        "secondary-fixed": "#ffe083",
+                        "tertiary-container-dark": "#003a51",
+                        "surface-bright": "#38393c",
+                        "tertiary-fixed": "#c4e7ff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface-dark": "#e3e2e6",
+                        "outline-dark": "#8e9099",
+                        "primary-dark": "#5B21B6",
+                        "background-dark": "#121316",
+                        "secondary-fixed-dim": "#eec200",
+                        "inverse-primary": "#455f88",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary-container-dark": "#eec200",
+                        "surface-dim": "#121316",
+                        "on-surface-variant-dark": "#c4c6cf",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-tint": "#adc7f7",
+                        "surface-container-highest-dark": "#343538",
+                        "surface-container-dark": "#1e2022",
+                        "tertiary-dark": "#7bd0ff",
+                        "on-primary-dark": "#133057",
+                        "surface-dark": "#121316",
+                        "error-container": "#93000a",
+                        "surface-variant-dark": "#343538",
+                        "on-secondary-container": "#645000",
+                        "inverse-on-surface-dark": "#2f3033",
+                        "on-error": "#690005",
+                        "surface-container-low-dark": "#1a1c1e",
+                        "on-tertiary-container": "#08aae4",
+                        "outline-variant-dark": "#43474e",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed": "#001e2c",
+                        "on-background-dark": "#e3e2e6",
+                        "surface-container-high-dark": "#292a2d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "block-gap": "32px",
+                        "unit": "4px",
+                        "container-padding": "32px",
+                        "section-gap": "96px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Space Grotesk"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<script>
+    (function() {
+        var h = document.documentElement;
+        var saved = localStorage.getItem('theme');
+        var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (sysDark ? 'dark' : 'light');
+        if (theme === 'dark') { h.classList.add('dark'); h.classList.remove('light'); }
+        else { h.classList.add('light'); h.classList.remove('dark'); }
+    })();
+</script>
+</head>
+<body class="selection:text-on-primary selection:bg-primary-vibrant/20 dark:selection:bg-primary-dark/40">
+
+<!-- TopNavBar -->
+<header class="bg-background/80 dark:bg-background-dark/80 top-0 sticky backdrop-blur-md border-b border-primary/5 dark:border-outline-variant-dark/20 z-50">
+<div class="max-w-[1280px] mx-auto px-8 py-4 flex justify-between items-center">
+<a href="index.html" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-primary-dark flex items-center select-none">
+    <img src="logos/logo.png" alt="Grace-X" class="h-8 w-auto mr-2"/>
+    Grace-X
+</a>
+<nav class="hidden md:flex gap-10 items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="index.html#platform-section">Platform</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="index.html#gx-section">Technology</a>
+<a class="text-primary-vibrant dark:text-primary-dark font-semibold text-sm tracking-wide" href="careers.html" aria-current="page">Careers</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="index.html#footer">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<button onclick="toggleTheme()" id="theme-toggle-btn" class="p-2 rounded text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary-vibrant dark:hover:text-primary-dark hover:bg-primary/5 dark:hover:bg-white/5 transition-colors duration-300 cursor-pointer" aria-label="Toggle theme">
+<span class="material-symbols-outlined dark:hidden" style="font-size:20px">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block" style="font-size:20px">light_mode</span>
+</button>
+<a href="index.html#cta-heading" class="bg-primary dark:bg-white text-on-primary dark:text-black px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm">Get in Touch</a>
+</div>
+</div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="max-w-[1280px] mx-auto px-8 pt-20 pb-8">
+<p class="text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-on-surface-variant dark:text-on-surface-variant-dark mb-5">Join the team</p>
+<h1 class="font-display-xl text-[48px] md:text-[64px] leading-[1.1] tracking-tight text-primary dark:text-on-background-dark text-balance font-bold max-w-3xl">
+    Build the future of private AI.
+</h1>
+</section>
+
+<!-- Open Positions -->
+<section class="max-w-[1280px] mx-auto px-8 py-20">
+<p class="text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-on-surface-variant dark:text-on-surface-variant-dark mb-3">Open positions</p>
+<h2 class="font-headline-lg text-[28px] md:text-[32px] text-primary dark:text-on-background-dark mb-10 font-semibold tracking-tight">Current openings</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Card 1: Sales – Enterprise -->
+    <div class="group border border-primary/5 dark:border-outline-variant-dark/20 rounded-xl p-7 bg-background dark:bg-surface-container-dark backdrop-blur-md flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-start justify-between gap-3">
+            <div>
+                <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary-vibrant dark:text-primary-dark mb-2">Sales</p>
+                <h3 class="font-headline-md text-[22px] text-primary dark:text-on-surface-dark font-semibold leading-snug">Enterprise</h3>
+            </div>
+            <span class="material-symbols-outlined text-primary/20 dark:text-white/10 mt-1 shrink-0" style="font-size:28px">handshake</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-surface-container dark:bg-surface-container-highest-dark text-on-surface-variant dark:text-on-surface-variant-dark border border-primary/5 dark:border-outline-variant-dark/20">Rome</span>
+        </div>
+        <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed flex-1">
+            Drive strategic deals with enterprise accounts in regulated industries.
+        </p>
+        <button onclick="openApplyForm('Sales: Enterprise')" class="mt-auto w-full bg-primary dark:bg-white text-on-primary dark:text-black py-2.5 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+            Apply Now
+        </button>
+    </div>
+
+    <!-- Card 2: Engineering – Core Developer / Platform -->
+    <div class="group border border-primary/5 dark:border-outline-variant-dark/20 rounded-xl p-7 bg-background dark:bg-surface-container-dark backdrop-blur-md flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-start justify-between gap-3">
+            <div>
+                <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary-vibrant dark:text-primary-dark mb-2">Engineering</p>
+                <h3 class="font-headline-md text-[22px] text-primary dark:text-on-surface-dark font-semibold leading-snug">Core Developer / Platform</h3>
+            </div>
+            <span class="material-symbols-outlined text-primary/20 dark:text-white/10 mt-1 shrink-0" style="font-size:28px">code</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-surface-container dark:bg-surface-container-highest-dark text-on-surface-variant dark:text-on-surface-variant-dark border border-primary/5 dark:border-outline-variant-dark/20">Rome</span>
+        </div>
+        <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed flex-1">
+            Build the core Grace-X platform across the full stack.
+        </p>
+        <button onclick="openApplyForm('Engineering: Core Developer / Platform')" class="mt-auto w-full bg-primary dark:bg-white text-on-primary dark:text-black py-2.5 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+            Apply Now
+        </button>
+    </div>
+
+    <!-- Card 3: Cryptographer – Privacy-enhancing technologies (FHE) -->
+    <div class="group border border-primary/5 dark:border-outline-variant-dark/20 rounded-xl p-7 bg-background dark:bg-surface-container-dark backdrop-blur-md flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-start justify-between gap-3">
+            <div>
+                <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary-vibrant dark:text-primary-dark mb-2">Cryptography</p>
+                <h3 class="font-headline-md text-[22px] text-primary dark:text-on-surface-dark font-semibold leading-snug">Cryptographer: Privacy-enhancing technologies (FHE)</h3>
+            </div>
+            <span class="material-symbols-outlined text-primary/20 dark:text-white/10 mt-1 shrink-0" style="font-size:28px">lock</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-surface-container dark:bg-surface-container-highest-dark text-on-surface-variant dark:text-on-surface-variant-dark border border-primary/5 dark:border-outline-variant-dark/20">Rome</span>
+        </div>
+        <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed flex-1">
+            Research and implement privacy-enhancing technologies including FHE and secure computation.
+        </p>
+        <button onclick="openApplyForm('Cryptographer: Privacy-enhancing technologies (FHE)')" class="mt-auto w-full bg-primary dark:bg-white text-on-primary dark:text-black py-2.5 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+            Apply Now
+        </button>
+    </div>
+
+    <!-- Card 4: Technical Services / Implementation Consultant -->
+    <div class="group border border-primary/5 dark:border-outline-variant-dark/20 rounded-xl p-7 bg-background dark:bg-surface-container-dark backdrop-blur-md flex flex-col gap-5 hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-start justify-between gap-3">
+            <div>
+                <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary-vibrant dark:text-primary-dark mb-2">Technical Services</p>
+                <h3 class="font-headline-md text-[22px] text-primary dark:text-on-surface-dark font-semibold leading-snug">Implementation Consultant</h3>
+            </div>
+            <span class="material-symbols-outlined text-primary/20 dark:text-white/10 mt-1 shrink-0" style="font-size:28px">settings_suggest</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-surface-container dark:bg-surface-container-highest-dark text-on-surface-variant dark:text-on-surface-variant-dark border border-primary/5 dark:border-outline-variant-dark/20">Rome</span>
+        </div>
+        <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark leading-relaxed flex-1">
+            Guide enterprise customers through onboarding and deployment.
+        </p>
+        <button onclick="openApplyForm('Technical Services / Implementation Consultant')" class="mt-auto w-full bg-primary dark:bg-white text-on-primary dark:text-black py-2.5 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+            Apply Now
+        </button>
+    </div>
+
+</div>
+
+<!-- Apply Form Panel -->
+<div id="careers-apply-section" class="mt-16">
+<div id="careers-apply-container">
+<div class="max-w-lg mx-auto pt-2 pb-10 text-left">
+
+    <div class="mb-8">
+        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-primary-vibrant dark:text-primary-dark mb-2">Apply now</p>
+        <h3 class="font-headline-lg text-[24px] text-primary dark:text-on-surface-dark font-semibold tracking-tight">
+            <span id="careers-apply-job-title"></span>
+        </h3>
+        <div class="mt-3 h-px bg-tertiary w-12"></div>
+    </div>
+
+    <form id="careers-form" class="space-y-5" onsubmit="handleCareerSubmit(event)">
+        <input type="hidden" name="job_title" id="careers-hidden-job-title"/>
+
+        <!-- Nome + Cognome -->
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">First name</label>
+                <input type="text" name="nome" required placeholder="John"
+                       class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors"/>
+            </div>
+            <div>
+                <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Last name</label>
+                <input type="text" name="cognome" required placeholder="Smith"
+                       class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors"/>
+            </div>
+        </div>
+
+        <!-- Impiego attuale -->
+        <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Current position</label>
+            <input type="text" name="impiego_attuale" placeholder="e.g. Senior Engineer at Acme Corp"
+                   class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors"/>
+        </div>
+
+        <!-- Esperienza lavorativa -->
+        <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Work experience</label>
+            <textarea name="esperienza_lavorativa" rows="5" required
+                      placeholder="Briefly describe your background, relevant experience, and what you've built or accomplished."
+                      class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors resize-none"></textarea>
+        </div>
+
+        <!-- CV -->
+        <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">CV / Resume <span class="normal-case tracking-normal font-normal text-on-surface-variant/60 dark:text-on-surface-variant-dark/60">(PDF, DOC)</span></label>
+            <div class="flex items-center gap-3">
+                <button type="button" onclick="document.getElementById('cv-input').click()"
+                        class="shrink-0 px-3 py-1.5 rounded text-xs font-semibold bg-primary dark:bg-primary-dark text-on-primary hover:opacity-85 transition-opacity cursor-pointer">
+                    Choose file
+                </button>
+                <span id="cv-filename" class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark truncate">No file chosen</span>
+                <input type="file" id="cv-input" name="cv" accept=".pdf,.doc,.docx" class="hidden"
+                       onchange="validateFileInput(this, 'cv-filename')"/>
+            </div>
+        </div>
+
+        <!-- Cover Letter -->
+        <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Cover letter <span class="normal-case tracking-normal font-normal text-on-surface-variant/60 dark:text-on-surface-variant-dark/60">(PDF, DOC | optional)</span></label>
+            <div class="flex items-center gap-3">
+                <button type="button" onclick="document.getElementById('cover-input').click()"
+                        class="shrink-0 px-3 py-1.5 rounded text-xs font-semibold bg-primary dark:bg-primary-dark text-on-primary hover:opacity-85 transition-opacity cursor-pointer">
+                    Choose file
+                </button>
+                <span id="cover-filename" class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark truncate">No file chosen</span>
+                <input type="file" id="cover-input" name="cover_letter" accept=".pdf,.doc,.docx" class="hidden"
+                       onchange="validateFileInput(this, 'cover-filename')"/>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="pt-1 flex flex-col gap-3">
+            <button type="submit" class="w-full bg-primary-vibrant dark:bg-primary-dark text-white py-3 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+                Submit Application
+            </button>
+            <button type="button" onclick="closeApplyForm()" class="w-full py-3 rounded font-semibold text-sm tracking-wide border border-outline dark:border-white/10 text-on-surface-variant dark:text-on-surface-variant-dark hover:border-primary dark:hover:border-white/30 hover:text-primary dark:hover:text-on-surface-dark transition-all cursor-pointer">
+                Cancel
+            </button>
+        </div>
+
+    </form>
+
+    <!-- Success state -->
+    <div id="careers-success" class="hidden text-center py-10">
+        <span class="material-symbols-outlined text-primary-vibrant dark:text-primary-dark mb-4" style="font-size:40px">check_circle</span>
+        <p class="font-headline-md text-xl font-semibold text-primary dark:text-on-surface-dark mb-2" style="font-family:'Space Grotesk',sans-serif">Application submitted!</p>
+        <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark">Thank you — we'll review your application and be in touch shortly.</p>
+    </div>
+
+    <!-- Error state -->
+    <p id="careers-error" class="hidden text-center text-sm text-red-500 mt-4">
+        Something went wrong. Please try again or reach us at <a href="mailto:luca.lustri@grace-x.ai" class="underline">luca.lustri@grace-x.ai</a>.
+    </p>
+
+</div>
+</div>
+</div>
+<!-- / Apply Form Panel -->
+
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer id="footer" class="bg-surface-container dark:bg-surface-container-dark border-t border-primary/5 dark:border-outline-variant-dark/20 transition-colors">
+<div class="max-w-[1280px] mx-auto px-8 py-10">
+<div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-12">
+<div class="max-w-md">
+<div class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-primary-dark mb-4">
+                Grace-X
+            </div>
+<p class="text-xs font-bold text-on-surface-variant dark:text-on-surface-variant-dark tracking-[0.15em] uppercase mb-4">Privacy-preserving brain for enterprise AI</p>
+</div>
+<div class="flex flex-col gap-1 md:text-right">
+<p class="text-sm font-semibold text-on-surface-variant dark:text-on-surface-variant-dark opacity-70">Gracex Technologies S.r.l.</p>
+<p class="text-xs text-on-surface-variant dark:text-on-surface-variant-dark opacity-70">Roma | P.IVA: 18541811008</p>
+<p class="text-xs text-on-surface-variant dark:text-on-surface-variant-dark opacity-70">PEC: <a href="mailto:gracextechnologiessrls@legalmail.it" class="hover:text-primary dark:hover:text-on-surface-dark transition-colors">gracextechnologiessrls@legalmail.it</a></p>
+</div>
+</div>
+<div class="pt-6 border-t border-primary/10 dark:border-outline-variant-dark/20 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-[10px] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase tracking-[0.2em] opacity-60">© 2026 GRACE-X AI. ALL RIGHTS RESERVED.</span>
+</div>
+</div>
+</footer>
+
+<script>
+    // Theme
+    (function() {
+        var h = document.documentElement;
+        function applyTheme(t) {
+            if (t === 'dark') { h.classList.add('dark'); h.classList.remove('light'); }
+            else { h.classList.add('light'); h.classList.remove('dark'); }
+            localStorage.setItem('theme', t);
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+        });
+        window.toggleTheme = function() {
+            applyTheme(h.classList.contains('dark') ? 'light' : 'dark');
+        };
+    })();
+
+    // File type validation
+    function validateFileInput(input, spanId) {
+        var span = document.getElementById(spanId);
+        if (!input.files || !input.files[0]) {
+            span.textContent = 'No file chosen';
+            span.style.color = '';
+            return;
+        }
+        var name = input.files[0].name;
+        var ext = name.substring(name.lastIndexOf('.')).toLowerCase();
+        if (['.pdf', '.doc', '.docx'].indexOf(ext) === -1) {
+            input.value = '';
+            span.textContent = 'Invalid file type — please upload a PDF or DOC.';
+            span.style.color = '#ef4444';
+        } else {
+            span.textContent = name;
+            span.style.color = '';
+        }
+    }
+
+    // Careers apply form
+    function openApplyForm(jobTitle) {
+        document.getElementById('careers-apply-job-title').textContent = jobTitle;
+        document.getElementById('careers-hidden-job-title').value = jobTitle;
+        document.getElementById('careers-apply-container').classList.add('is-open');
+        document.getElementById('careers-success').classList.add('hidden');
+        document.getElementById('careers-error').classList.add('hidden');
+        document.getElementById('careers-form').classList.remove('hidden');
+        setTimeout(function() {
+            document.getElementById('careers-apply-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 250);
+    }
+
+    function closeApplyForm() {
+        document.getElementById('careers-apply-container').classList.remove('is-open');
+        setTimeout(function() {
+            document.getElementById('careers-form').reset();
+            document.getElementById('cv-filename').textContent = 'No file chosen';
+            document.getElementById('cv-filename').style.color = '';
+            document.getElementById('cover-filename').textContent = 'No file chosen';
+            document.getElementById('cover-filename').style.color = '';
+            document.getElementById('careers-success').classList.add('hidden');
+            document.getElementById('careers-error').classList.add('hidden');
+            document.getElementById('careers-form').classList.remove('hidden');
+        }, 400);
+    }
+
+    function handleCareerSubmit(e) {
+        e.preventDefault();
+        var btn = e.target.querySelector('[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        emailjs.sendForm('service_f2w7adi', 'template_4nnifke', e.target)
+            .then(function() {
+                document.getElementById('careers-form').classList.add('hidden');
+                document.getElementById('careers-success').classList.remove('hidden');
+            }, function() {
+                btn.disabled = false;
+                btn.textContent = 'Submit Application';
+                var err = document.getElementById('careers-error');
+                err.textContent = 'Something went wrong. Please email us at luca.lustri@grace-x.ai.';
+                err.classList.remove('hidden');
+            });
+    }
+</script>
+</body></html>
