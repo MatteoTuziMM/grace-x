@@ -49,6 +49,7 @@ function calcPos(offset){
   return {x:+(R*Math.cos(a)).toFixed(2),y:+(R*Math.sin(a)).toFixed(2)};
 }
 function render(anim){
+  var isDark=document.documentElement.classList.contains('dark');
   document.querySelectorAll('.gx-node').forEach(function(nd,i){
     var off=((i-ai)%T+T)%T;
     var p=calcPos(off);
@@ -60,9 +61,13 @@ function render(anim){
     nd.style.opacity=op;
     nd.style.zIndex=active?10:near?5:1;
     var c=nd.querySelector('.gx-circle'),ico=nd.querySelector('.gx-icon'),lbl=nd.querySelector('.gx-label');
-    if(c){c.style.borderColor=active?'rgba(124,58,237,.35)':'rgba(255,255,255,.08)';c.style.background=active?'#201f1f':'#1c1b1b';c.style.boxShadow=active?'0 0 28px rgba(124,58,237,.18)':'none';}
-    if(ico) ico.style.color=active?'#7C3AED':'#c4c7c8';
-    if(lbl) lbl.style.color=active?'#e5e2e1':'#888';
+    if(c){
+      c.style.borderColor=active?'rgba(124,58,237,.35)':(isDark?'rgba(255,255,255,.08)':'rgba(5,26,73,0.12)');
+      c.style.background=active?(isDark?'#201f1f':'rgba(5,26,73,0.08)'):(isDark?'#1c1b1b':'rgba(5,26,73,0.05)');
+      c.style.boxShadow=active?'0 0 28px rgba(124,58,237,.18)':'none';
+    }
+    if(ico) ico.style.color=active?'#7C3AED':(isDark?'#c4c7c8':'#44566C');
+    if(lbl) lbl.style.color=active?(isDark?'#e5e2e1':'#051A49'):(isDark?'#888':'#44566C');
   });
 }
 function updateInfo(){
@@ -88,6 +93,7 @@ function stopAuto(){clearInterval(tmr);tmr=null;}
 window.gxGoTo=function(n){stopAuto();goTo(n,true);startAuto();};
 window.gxPrev=function(){stopAuto();goTo(ai-1,true);startAuto();};
 window.gxNext=function(){stopAuto();goTo(ai+1,true);startAuto();};
+window.gxRefresh=function(){render(false);};
 goTo(0,false);
 startAuto();
 MQ.addEventListener('change',function(e){R=e.matches?170:210;render(false);});
@@ -120,6 +126,7 @@ function collapseCtaForm() {
 }
 function toggleTheme() {
     applyTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
+    if (window.gxRefresh) window.gxRefresh();
 }
 
 function handleContactSubmit(e) {
