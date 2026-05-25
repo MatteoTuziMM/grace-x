@@ -2,6 +2,17 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>GRACE-X | Careers</title>
+<meta name="description" content="Join Grace-X and build the future of private AI. Open roles in Sales, Engineering, Cryptography, and Technical Services — based in Rome."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://grace-x.ai/careers.html"/>
+<meta property="og:title" content="Careers — Grace-X"/>
+<meta property="og:description" content="Join Grace-X and build the future of private AI. Open roles in Sales, Engineering, Cryptography, and Technical Services — based in Rome."/>
+<meta property="og:image" content="https://grace-x.ai/screen.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Careers — Grace-X"/>
+<meta name="twitter:description" content="Join Grace-X and build the future of private AI."/>
+<meta name="twitter:image" content="https://grace-x.ai/screen.png"/>
+<link rel="canonical" href="https://grace-x.ai/careers.html"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link rel="icon" type="image/png" href="logos/logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -133,7 +144,7 @@
 <!-- TopNavBar -->
 <header class="bg-background/80 dark:bg-background-dark/80 top-0 sticky backdrop-blur-md border-b border-primary/5 dark:border-outline-variant-dark/20 z-50">
 <div class="max-w-[1280px] mx-auto px-8 py-4 flex justify-between items-center">
-<a href="index.html" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-primary-dark flex items-center select-none">
+<a href="index.html" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-white flex items-center select-none">
     <img src="logos/logo.png" alt="Grace-X" class="h-8 w-auto mr-2"/>
     Grace-X
 </a>
@@ -353,7 +364,7 @@
 
     <!-- Error state -->
     <p id="careers-error" class="hidden text-center text-sm text-red-500 mt-4">
-        Something went wrong. Please try again or reach us at <a href="mailto:luca.lustri@grace-x.ai" class="underline">luca.lustri@grace-x.ai</a>.
+        Something went wrong. Please try again or reach us at <a href="mailto:careers@grace-x.ai" class="underline">careers@grace-x.ai</a>.
     </p>
 
 </div>
@@ -418,10 +429,17 @@
             input.value = '';
             span.textContent = 'Invalid file type — please upload a PDF or DOC.';
             span.style.color = '#ef4444';
-        } else {
-            span.textContent = name;
-            span.style.color = '';
+            return;
         }
+        var MAX_MB = 5;
+        if (input.files[0].size > MAX_MB * 1024 * 1024) {
+            input.value = '';
+            span.textContent = 'File too large — maximum ' + MAX_MB + ' MB.';
+            span.style.color = '#ef4444';
+            return;
+        }
+        span.textContent = name;
+        span.style.color = '';
     }
 
     // Careers apply form
@@ -468,7 +486,7 @@
                 btn.disabled = false;
                 btn.textContent = 'Submit Application';
                 var err = document.getElementById('careers-error');
-                err.textContent = 'Something went wrong. Please email us at luca.lustri@grace-x.ai.';
+                err.textContent = 'Something went wrong. Please email us at careers@grace-x.ai.';
                 err.classList.remove('hidden');
             });
     }

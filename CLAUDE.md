@@ -7,9 +7,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Static landing page for **Grace-X**, a privacy-preserving enterprise AI memory and knowledge graph platform. No build system, no framework, no package manager. Four files:
 
 - `index.html` — HTML structure + Tailwind config inline
-- `careers.html` — standalone Careers page; shares the same Tailwind CDN, design tokens, and theme logic but has no carousel or contact form
+- `careers.html` — standalone Careers page; fully self-contained (no `main.js` dependency), all JS inline; shares the same Tailwind CDN, design tokens, and `style.css`
 - `style.css` — all custom CSS (animations, component classes, form transitions)
-- `main.js` — all JavaScript (theme, wheel carousel, CTA form + EmailJS)
+- `main.js` — all JavaScript for `index.html` only (theme, wheel carousel, CTA form + EmailJS)
 
 ## Running the Page
 
@@ -29,7 +29,7 @@ Hosted on GitHub Pages with a custom domain configured via `CNAME` → **grace-x
 
 `index.html` is a fully self-contained file with three logical zones:
 
-1. **`<head>` / Tailwind config** (`<script id="tailwind-config">`) — the entire design token system lives here as a `tailwind.config` object. All custom colors, font sizes, border radii, and spacing are defined inline. Edit tokens here to propagate changes site-wide.
+1. **`<head>` / Tailwind config** (`<script id="tailwind-config">`) — the entire design token system lives here as a `tailwind.config` object. All custom colors, font sizes, border radii, and spacing are defined inline. Edit tokens here to propagate changes site-wide. **This block is duplicated verbatim in `careers.html`'s `<head>`** — any design token change must be applied to both files.
 
 2. **`<body>` sections** — sequential marketing sections, each commented with their name. Order: `TopNavBar` → `Hero` → `Problem` → `Solution` → `Infrastructure` → `Enterprise Superintelligence` → `How Grace-X Works` → `Final CTA` → `Footer`. The layout uses a `max-w-[1280px] mx-auto` container throughout. All sections from Hero through Final CTA are wrapped in a `<main>` element.
 
@@ -63,9 +63,9 @@ When reconciling design and code, follow `index.html`'s Tailwind config as the l
 
 Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<html>` has class `dark`. Every color used should have a `dark:` counterpart. The dark palette uses `-dark` suffixed tokens (e.g., `bg-background-dark`, `text-on-surface-dark`, `border-outline-variant-dark`).
 
-**Exception — Wheel Carousel:** The "How Grace-X Works" section (`#gx-section`) is intentionally always dark-styled. The JavaScript hard-codes near-black backgrounds (`#201f1f`, `#1c1b1b`) for orbit nodes regardless of page theme. This is by design; do not attempt to make the carousel node styles theme-aware.
+**Exception — Wheel Carousel:** The "How Grace-X Works" section (`#gx-section`) is intentionally always dark-styled. The JavaScript hard-codes near-black backgrounds (`#201f1f`, `#1c1b1b`) for orbit nodes **when the active state is on**; inactive node borders/icon colors do adapt to light/dark via the `render()` function in `main.js`. `toggleTheme()` calls `window.gxRefresh()` immediately after switching theme so the carousel re-renders node colors without animation.
 
-**Mobile:** The carousel orbit radius is 210px on desktop and reduces to 170px on mobile (raw `(max-width:767px)` media query — equivalent to Tailwind `md:`). Node sizing, opacity, and scale logic are unchanged; only the radius changes.
+**Mobile:** The carousel orbit radius is 210px on desktop and reduces to 170px on mobile (raw `(max-width:767px)` media query — note: 767px, not 768px). The `matchMedia` listener in `main.js` re-runs `render(false)` on breakpoint change so the layout reflows without a transition flash.
 
 ## Conventions
 
@@ -94,14 +94,39 @@ Tailwind `darkMode: "class"` — the `dark:` prefix variants are active when `<h
 
 2. **Wheel Carousel IIFE** — drives the "How Grace-X Works" section (`#gx-section`). Five nodes (`#gx-n0`–`#gx-n4`, class `.gx-node`) are positioned by polar offset from center at radius 210px. Active node: scale 1.0/opacity 1/violet glow. Adjacent nodes: scale 0.62/opacity 0.55. Far nodes: scale 0.5/opacity 0.3. Center panel `#gx-info` fades between `#gx-c-num`, `#gx-c-title`, `#gx-c-flow`, `#gx-c-desc`. Global functions: `gxGoTo(n)`, `gxPrev()`, `gxNext()`. Auto-advances every 5s; clicking a node resets the timer.
 
-3. **CTA form + `toggleTheme()`** — `toggleTheme()` (global, called by `#theme-toggle-btn`) is defined here, after the CTA helpers, despite belonging conceptually to section 1. Three global functions manage the Final CTA inline contact form:
+3. **CTA form + `toggleTheme()`** — `toggleTheme()` (global, called by `#theme-toggle-btn`) is defined here, after the CTA helpers, despite belonging conceptually to section 1. It calls `applyTheme(...)` then immediately calls `window.gxRefresh()` to re-render carousel node colors. Three global functions manage the Final CTA inline contact form:
    - `expandCtaForm()` — hides `#cta-btn-area`, reveals `#cta-form-container` with a CSS `is-open` class, smooth-scrolls into view.
    - `collapseCtaForm()` — reverses the above, resets the form, and hides both `#contact-success` and `#contact-error`.
-   - `handleContactSubmit(e)` — prevents default, disables the submit button with "Invio in corso…" feedback, calls `emailjs.sendForm('service_f2w7adi', 'template_2c9xmz9', form)`. On success: shows `#contact-success`, hides `#contact-form`. On failure: re-enables the button and shows `#contact-error`.
+   - `handleContactSubmit(e)` — prevents default, disables the submit button with "Sending…" feedback, calls `emailjs.sendForm('service_f2w7adi', 'template_2c9xmz9', form)`. On success: shows `#contact-success`, hides `#contact-form`. On failure: re-enables the button and shows `#contact-error`.
+
+## careers.html Architecture
+
+`careers.html` loads no external JavaScript — all logic is inline in two `<script>` blocks:
+
+1. **Head IIFE** (before `</head>`) — reads `localStorage.theme` and applies the `dark`/`light` class to `<html>` synchronously, preventing a flash-of-wrong-theme. Does not write back to `localStorage`.
+
+2. **Bottom script** (before `</body>`) — defines all runtime logic as globals:
+   - `applyTheme(t)` — sets class + writes to `localStorage` (scoped inside an IIFE; not the same function as in `main.js`)
+   - `toggleTheme()` — exposed on `window`, called by `#theme-toggle-btn` in the nav
+   - `validateFileInput(input, spanId)` — validates `.pdf/.doc/.docx` extension on file inputs; shows the filename or an inline red error
+   - `openApplyForm(jobTitle)` — sets `#careers-apply-job-title` text, populates hidden `job_title` field, adds `.is-open` to `#careers-apply-container`, scrolls the section into view
+   - `closeApplyForm()` — removes `.is-open`, resets the form and file-name spans after a 400ms delay
+   - `handleCareerSubmit(e)` — disables all inputs, calls `emailjs.sendForm('service_f2w7adi', 'template_4nnifke', form)`, shows `#careers-success` or `#careers-error`
+
+EmailJS is also initialized in `careers.html`'s `<head>` with the same public key (`Aetm3nixrn8QoM3Zb`). **Do not remove this init** — `careers.html` never loads `main.js`.
+
+## EmailJS Templates
+
+| Form | Service | Template | Fields (name attributes) |
+|------|---------|----------|--------------------------|
+| Contact (index.html) | `service_f2w7adi` | `template_2c9xmz9` | `nome`, `cognome`, `messaggio` |
+| Apply (careers.html) | `service_f2w7adi` | `template_4nnifke` | `job_title`, `nome`, `cognome`, `email`, `impiego_attuale`, `esperienza_lavorativa`, `cv` (file), `cover_letter` (file, optional) |
+
+Field `name` attributes are Italian for both forms; they are EmailJS template variables — rename only if the corresponding template is updated.
 
 ## UI Copy Language
 
-All copy — main page body and the CTA contact form — is in English. However, the contact form's `name` attributes are Italian (`nome`, `cognome`, `messaggio`); these are EmailJS template variables and must stay in sync with the template — do not rename them without updating the EmailJS template `template_2c9xmz9`.
+All copy — main page body, contact form, and careers page — is in English. Form field `name` attributes are Italian (see EmailJS Templates table above) and must stay in sync with their respective EmailJS templates.
 
 ## Assets
 
