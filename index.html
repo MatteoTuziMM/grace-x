@@ -144,12 +144,13 @@
 <a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="careers.html">Careers</a>
 <a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#footer" onclick="event.preventDefault();document.getElementById('footer').scrollIntoView({behavior:'smooth',block:'start'})">Contact</a>
 </nav>
-<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 md:gap-3">
 <button onclick="toggleTheme()" id="theme-toggle-btn" class="p-2 rounded text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary-vibrant dark:hover:text-primary-dark hover:bg-primary/5 dark:hover:bg-white/5 transition-colors duration-300 cursor-pointer" aria-label="Toggle theme">
 <span class="material-symbols-outlined dark:hidden" style="font-size:20px">dark_mode</span>
 <span class="material-symbols-outlined hidden dark:block" style="font-size:20px">light_mode</span>
 </button>
-<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-primary dark:bg-white text-on-primary dark:text-black px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
+<button onclick="document.getElementById('demo-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="border border-primary/30 dark:border-white/20 text-primary dark:text-on-background-dark px-4 md:px-6 py-2.5 rounded-lg font-semibold text-sm hover:border-primary dark:hover:border-white/50 hover:bg-primary/5 dark:hover:bg-white/5 transition-all duration-300 cursor-pointer">Demo Request</button>
+<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-primary dark:bg-white text-on-primary dark:text-black px-4 md:px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
 </div>
 </div>
 </header>
@@ -547,6 +548,62 @@
       <p class="text-3xl mb-3">✓</p>
       <p class="font-bold text-primary dark:text-on-surface-dark" style="font-family:'Space Grotesk',sans-serif">Message sent!</p>
       <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark mt-1">We'll be in touch shortly.</p>
+    </div>
+  </div>
+</div>
+</section>
+<!-- Demo Request -->
+<section class="max-w-[1280px] mx-auto px-8 py-20 text-center border-t border-primary/5 dark:border-outline-variant-dark/10">
+<h2 id="demo-heading" class="font-display-xl text-[32px] md:text-[40px] text-primary dark:text-on-background-dark mb-3 leading-tight text-balance font-bold">
+            See Grace-X in action.
+        </h2>
+<p class="text-on-surface-variant dark:text-on-surface-variant-dark text-base max-w-xl mx-auto mb-10">
+            Request a personalized demo and discover how Grace-X brings private AI to your enterprise.
+        </p>
+<div id="demo-btn-area" class="flex justify-center">
+  <button onclick="expandDemoForm()" class="bg-primary dark:bg-white text-on-primary dark:text-black px-12 py-5 rounded-lg font-bold text-sm tracking-wide hover:opacity-90 transition-all hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+    Demo Request
+  </button>
+</div>
+<div id="demo-form-container">
+  <div class="max-w-lg mx-auto pt-10 text-left">
+    <form id="demo-form" class="space-y-4" onsubmit="handleDemoSubmit(event)">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">First name</label>
+          <input type="text" name="nome" required placeholder="John"
+                 class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors">
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Last name</label>
+          <input type="text" name="cognome" required placeholder="Smith"
+                 class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors">
+        </div>
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Email</label>
+        <input type="email" name="email" required placeholder="john@company.com"
+               class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors">
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant dark:text-on-surface-variant-dark mb-1.5">Message (optional)</label>
+        <textarea name="messaggio" rows="4" placeholder="Tell us about your use case…"
+                  class="w-full px-3 py-2.5 text-sm rounded border border-outline-variant dark:border-white/10 bg-white dark:bg-white/5 text-primary dark:text-on-surface-dark placeholder-on-surface-variant/40 focus:outline-none focus:border-primary-vibrant dark:focus:border-primary-dark transition-colors resize-none"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-primary-vibrant dark:bg-primary-dark text-white py-3 rounded font-semibold text-sm tracking-wide hover:opacity-90 transition-all cursor-pointer">
+        Request demo
+      </button>
+      <button type="button" onclick="collapseDemoForm()" class="w-full py-3 rounded font-semibold text-sm tracking-wide border border-outline dark:border-white/10 text-on-surface-variant dark:text-on-surface-variant-dark hover:border-primary dark:hover:border-white/30 hover:text-primary dark:hover:text-on-surface-dark transition-all cursor-pointer mt-1">
+        Cancel
+      </button>
+    </form>
+    <p id="demo-error" class="hidden text-center text-sm text-red-500 mt-2">
+      Something went wrong. Please try again or reach us at <a href="mailto:contact@grace-x.ai" class="underline">contact@grace-x.ai</a>.
+    </p>
+    <div id="demo-success" class="hidden text-center py-8">
+      <p class="text-3xl mb-3">✓</p>
+      <p class="font-bold text-primary dark:text-on-surface-dark" style="font-family:'Space Grotesk',sans-serif">Request received!</p>
+      <p class="text-sm text-on-surface-variant dark:text-on-surface-variant-dark mt-1">We'll be in touch to schedule your demo.</p>
     </div>
   </div>
 </div>

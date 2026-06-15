@@ -111,21 +111,25 @@
         }
 
         /* Contact form inline */
-        #cta-btn-area {
+        #cta-btn-area,
+        #demo-btn-area {
             transition: opacity 0.2s ease, transform 0.2s ease;
         }
-        #cta-btn-area.hiding {
+        #cta-btn-area.hiding,
+        #demo-btn-area.hiding {
             opacity: 0;
             transform: scale(0.85);
             pointer-events: none;
         }
-        #cta-form-container {
+        #cta-form-container,
+        #demo-form-container {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease 0.15s;
         }
-        #cta-form-container.is-open {
+        #cta-form-container.is-open,
+        #demo-form-container.is-open {
             max-height: 700px;
             opacity: 1;
         }

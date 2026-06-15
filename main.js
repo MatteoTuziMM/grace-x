@@ -148,3 +148,60 @@ function handleContactSubmit(e) {
             document.getElementById('contact-error').classList.remove('hidden');
         });
 }
+
+function expandDemoForm() {
+    var btnArea = document.getElementById('demo-btn-area');
+    var formArea = document.getElementById('demo-form-container');
+    btnArea.classList.add('hiding');
+    setTimeout(function() {
+        btnArea.style.display = 'none';
+        formArea.classList.add('is-open');
+        setTimeout(function() {
+            formArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 250);
+    }, 220);
+}
+function collapseDemoForm() {
+    var btnArea = document.getElementById('demo-btn-area');
+    var formArea = document.getElementById('demo-form-container');
+    formArea.classList.remove('is-open');
+    setTimeout(function() {
+        btnArea.style.display = '';
+        btnArea.classList.remove('hiding');
+        document.getElementById('demo-form').classList.remove('hidden');
+        document.getElementById('demo-success').classList.add('hidden');
+        document.getElementById('demo-error').classList.add('hidden');
+        document.getElementById('demo-form').reset();
+    }, 220);
+}
+function handleDemoSubmit(e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button[type="submit"]');
+    var originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    document.getElementById('demo-error').classList.add('hidden');
+
+    // No dedicated EmailJS template available yet (free plan), so reuse the
+    // "Get in Touch" template and tag the message so demo requests are
+    // distinguishable in the inbox. TODO: switch to a dedicated template later.
+    var userMsg = (form.messaggio.value || '').trim();
+    var params = {
+        nome: form.nome.value,
+        cognome: form.cognome.value,
+        email: form.email.value,
+        messaggio: '[DEMO REQUEST] ' + (userMsg || '(no message)')
+    };
+
+    emailjs.send('service_f2w7adi', 'template_2c9xmz9', params)
+        .then(function() {
+            document.getElementById('demo-form').classList.add('hidden');
+            document.getElementById('demo-success').classList.remove('hidden');
+        })
+        .catch(function() {
+            btn.disabled = false;
+            btn.textContent = originalText;
+            document.getElementById('demo-error').classList.remove('hidden');
+        });
+}
