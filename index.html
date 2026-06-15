@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -129,12 +130,24 @@
             },
         }
     </script>
+<script>
+        // Apply saved/system theme synchronously to prevent a flash-of-wrong-theme
+        // before main.js loads at the bottom of <body>. Does not write to localStorage.
+        (function() {
+            var h = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = saved || (sysDark ? 'dark' : 'light');
+            if (theme === 'dark') { h.classList.add('dark'); h.classList.remove('light'); }
+            else { h.classList.add('light'); h.classList.remove('dark'); }
+        })();
+    </script>
 </head>
 <body class="selection:text-on-primary selection:bg-primary-vibrant/20 dark:selection:bg-primary-dark/40">
 <!-- TopNavBar -->
 <header class="bg-background/80 dark:bg-background-dark/80 top-0 sticky backdrop-blur-md border-b border-primary/5 dark:border-outline-variant-dark/20 z-50">
 <div class="max-w-[1280px] mx-auto px-8 py-4 flex justify-between items-center">
-<div onclick="window.scrollTo({top:0,behavior:'smooth'})" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-white flex items-center cursor-pointer select-none">
+<div onclick="window.scrollTo({top:0,behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}" role="button" tabindex="0" aria-label="Scroll to top" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-white flex items-center cursor-pointer select-none">
             <img src="logos/logo.png" alt="Grace-X" class="h-8 w-auto mr-2"/>
             Grace-X
         </div>
@@ -446,7 +459,7 @@
 <p id="gx-c-desc" class="text-on-surface-variant dark:text-on-surface-variant-dark" style="font-size:13px;line-height:1.65;font-family:'Inter',sans-serif;"></p>
 </div>
 </div>
-<div id="gx-n0" class="gx-node absolute" onclick="gxGoTo(0)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div id="gx-n0" class="gx-node absolute" onclick="gxGoTo(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();gxGoTo(0)}" role="button" tabindex="0" aria-label="Step 1: Input" style="left:50%;top:50%;width:120px;cursor:pointer;">
 <div class="flex flex-col items-center text-center" style="gap:10px;">
 <div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
 <span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">terminal</span>
@@ -454,7 +467,7 @@
 <p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Input</p>
 </div>
 </div>
-<div id="gx-n1" class="gx-node absolute" onclick="gxGoTo(1)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div id="gx-n1" class="gx-node absolute" onclick="gxGoTo(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();gxGoTo(1)}" role="button" tabindex="0" aria-label="Step 2: Privacy Layer" style="left:50%;top:50%;width:120px;cursor:pointer;">
 <div class="flex flex-col items-center text-center" style="gap:10px;">
 <div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
 <span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">lock</span>
@@ -462,7 +475,7 @@
 <p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Privacy Layer</p>
 </div>
 </div>
-<div id="gx-n2" class="gx-node absolute" onclick="gxGoTo(2)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div id="gx-n2" class="gx-node absolute" onclick="gxGoTo(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();gxGoTo(2)}" role="button" tabindex="0" aria-label="Step 3: Global LLM" style="left:50%;top:50%;width:120px;cursor:pointer;">
 <div class="flex flex-col items-center text-center" style="gap:10px;">
 <div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
 <span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">language</span>
@@ -470,7 +483,7 @@
 <p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">Global LLM</p>
 </div>
 </div>
-<div id="gx-n3" class="gx-node absolute" onclick="gxGoTo(3)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div id="gx-n3" class="gx-node absolute" onclick="gxGoTo(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();gxGoTo(3)}" role="button" tabindex="0" aria-label="Step 4: De-process" style="left:50%;top:50%;width:120px;cursor:pointer;">
 <div class="flex flex-col items-center text-center" style="gap:10px;">
 <div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
 <span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">lock_open</span>
@@ -478,7 +491,7 @@
 <p class="gx-label font-label-sm text-[10px] uppercase tracking-widest whitespace-nowrap" style="color:#c4c7c8;transition:color .75s;">De-process</p>
 </div>
 </div>
-<div id="gx-n4" class="gx-node absolute" onclick="gxGoTo(4)" style="left:50%;top:50%;width:120px;cursor:pointer;">
+<div id="gx-n4" class="gx-node absolute" onclick="gxGoTo(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();gxGoTo(4)}" role="button" tabindex="0" aria-label="Step 5: Output" style="left:50%;top:50%;width:120px;cursor:pointer;">
 <div class="flex flex-col items-center text-center" style="gap:10px;">
 <div class="gx-circle w-16 h-16 rounded-full border flex items-center justify-center" style="border-color:rgba(255,255,255,0.1);background:#1c1b1b;transition:border-color .75s,background .75s,box-shadow .75s;">
 <span class="gx-icon material-symbols-outlined text-2xl" style="color:#c4c7c8;transition:color .75s;">output</span>
@@ -488,10 +501,10 @@
 </div>
 </div>
 <div class="flex items-center justify-center gap-4 mt-8">
-<button onclick="gxPrev()" class="w-10 h-10 flex items-center justify-center border border-primary/10 dark:border-white/10 rounded-lg text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary dark:hover:text-on-surface-dark hover:border-primary/20 dark:hover:border-white/20 transition-all duration-300">
+<button onclick="gxPrev()" aria-label="Previous step" class="w-10 h-10 flex items-center justify-center border border-primary/10 dark:border-white/10 rounded-lg text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary dark:hover:text-on-surface-dark hover:border-primary/20 dark:hover:border-white/20 transition-all duration-300">
 <span class="material-symbols-outlined text-xl">arrow_back</span>
 </button>
-<button onclick="gxNext()" class="w-10 h-10 flex items-center justify-center border border-primary/10 dark:border-white/10 rounded-lg text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary dark:hover:text-on-surface-dark hover:border-primary/20 dark:hover:border-white/20 transition-all duration-300">
+<button onclick="gxNext()" aria-label="Next step" class="w-10 h-10 flex items-center justify-center border border-primary/10 dark:border-white/10 rounded-lg text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary dark:hover:text-on-surface-dark hover:border-primary/20 dark:hover:border-white/20 transition-all duration-300">
 <span class="material-symbols-outlined text-xl">arrow_forward</span>
 </button>
 </div>
@@ -626,7 +639,7 @@
 </div>
 </div>
 <div class="pt-6 border-t border-primary/10 dark:border-outline-variant-dark/20 flex flex-col md:flex-row justify-between items-center gap-6">
-<span class="text-[10px] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase tracking-[0.2em] opacity-60">© 2026 GRACE-X AI. ALL RIGHTS RESERVED.</span>
+<span class="text-[10px] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase tracking-[0.2em] opacity-60">© <span id="copyright-year">2026</span> GRACE-X AI. ALL RIGHTS RESERVED.</span>
 </div>
 </div>
 </footer>

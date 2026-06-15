@@ -33,7 +33,7 @@ Hosted on GitHub Pages with a custom domain configured via `CNAME` → **grace-x
 
 2. **`<body>` sections** — sequential marketing sections, each commented with their name. Order: `TopNavBar` → `Hero` → `Problem` → `Solution` → `Infrastructure` → `Enterprise Superintelligence` → `How Grace-X Works` → `Final CTA` → `Footer`. The layout uses a `max-w-[1280px] mx-auto` container throughout. All sections from Hero through Final CTA are wrapped in a `<main>` element.
 
-3. **`main.js`** (loaded at bottom of `<body>`) — reads/writes `localStorage.theme`, applies `dark`/`light` class to `<html>`. Initializes from localStorage or system preference, and listens for system preference changes. The NavBar has a `#theme-toggle-btn` that calls the global `toggleTheme()` (toggles between `'dark'` and `'light'`); to switch programmatically, call `applyTheme('dark'|'light')` directly.
+3. **`main.js`** (loaded at bottom of `<body>`) — reads/writes `localStorage.theme`, applies `dark`/`light` class to `<html>`. Initializes from localStorage or system preference, and listens for system preference changes. A small synchronous IIFE in `index.html`'s `<head>` (after the Tailwind config block) applies the saved/system theme before first paint to prevent a flash-of-wrong-theme; it does **not** write back to `localStorage` (mirrors the `careers.html` head IIFE). The NavBar has a `#theme-toggle-btn` that calls the global `toggleTheme()` (toggles between `'dark'` and `'light'`); to switch programmatically, call `applyTheme('dark'|'light')` directly.
 
 ## Design System (`DESIGN.md`)
 

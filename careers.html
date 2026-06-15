@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -393,7 +394,7 @@
 </div>
 </div>
 <div class="pt-6 border-t border-primary/10 dark:border-outline-variant-dark/20 flex flex-col md:flex-row justify-between items-center gap-6">
-<span class="text-[10px] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase tracking-[0.2em] opacity-60">© 2026 GRACE-X AI. ALL RIGHTS RESERVED.</span>
+<span class="text-[10px] font-bold text-on-surface-variant dark:text-on-surface-variant-dark uppercase tracking-[0.2em] opacity-60">© <span id="copyright-year">2026</span> GRACE-X AI. ALL RIGHTS RESERVED.</span>
 </div>
 </div>
 </footer>
@@ -413,6 +414,12 @@
         window.toggleTheme = function() {
             applyTheme(h.classList.contains('dark') ? 'light' : 'dark');
         };
+    })();
+
+    // Keep footer copyright year current
+    (function() {
+        var y = document.getElementById('copyright-year');
+        if (y) y.textContent = new Date().getFullYear();
     })();
 
     // File type validation

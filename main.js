@@ -33,6 +33,12 @@
 
     emailjs.init({ publicKey: 'Aetm3nixrn8QoM3Zb' });
 
+    // Keep footer copyright year current
+    (function() {
+        var y = document.getElementById('copyright-year');
+        if (y) y.textContent = new Date().getFullYear();
+    })();
+
 (function(){
 var T=5,INT=5000,ai=0,tmr=null;
 var DATA=[
