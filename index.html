@@ -146,9 +146,9 @@
 <body class="selection:text-on-primary selection:bg-primary-vibrant/20 dark:selection:bg-primary-dark/40">
 <!-- TopNavBar -->
 <header class="bg-background/80 dark:bg-background-dark/80 top-0 sticky backdrop-blur-md border-b border-primary/5 dark:border-outline-variant-dark/20 z-50">
-<div class="max-w-[1280px] mx-auto px-8 py-4 flex justify-between items-center">
-<div onclick="window.scrollTo({top:0,behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}" role="button" tabindex="0" aria-label="Scroll to top" class="font-headline-md text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-white flex items-center cursor-pointer select-none">
-            <img src="logos/logo.png" alt="Grace-X" class="h-8 w-auto mr-2"/>
+<div class="max-w-[1280px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center gap-2">
+<div onclick="window.scrollTo({top:0,behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}" role="button" tabindex="0" aria-label="Scroll to top" class="font-headline-md text-lg md:text-2xl font-bold tracking-tighter text-primary-vibrant dark:text-white flex items-center cursor-pointer select-none whitespace-nowrap shrink-0">
+            <img src="logos/logo.png" alt="Grace-X" class="h-7 md:h-8 w-auto mr-1.5 md:mr-2"/>
             Grace-X
         </div>
 <nav class="hidden md:flex gap-10 items-center">
@@ -157,13 +157,13 @@
 <a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="careers.html">Careers</a>
 <a class="text-on-surface-variant dark:text-on-surface-variant-dark font-semibold text-sm tracking-wide hover:text-primary-vibrant dark:hover:text-primary-dark transition-colors duration-300" href="#footer" onclick="event.preventDefault();document.getElementById('footer').scrollIntoView({behavior:'smooth',block:'start'})">Contact</a>
 </nav>
-<div class="flex items-center gap-2 md:gap-3">
-<button onclick="toggleTheme()" id="theme-toggle-btn" class="p-2 rounded text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary-vibrant dark:hover:text-primary-dark hover:bg-primary/5 dark:hover:bg-white/5 transition-colors duration-300 cursor-pointer" aria-label="Toggle theme">
+<div class="flex items-center gap-1.5 md:gap-3 shrink-0">
+<button onclick="toggleTheme()" id="theme-toggle-btn" class="p-1.5 md:p-2 rounded text-on-surface-variant dark:text-on-surface-variant-dark hover:text-primary-vibrant dark:hover:text-primary-dark hover:bg-primary/5 dark:hover:bg-white/5 transition-colors duration-300 cursor-pointer" aria-label="Toggle theme">
 <span class="material-symbols-outlined dark:hidden" style="font-size:20px">dark_mode</span>
 <span class="material-symbols-outlined hidden dark:block" style="font-size:20px">light_mode</span>
 </button>
-<button onclick="document.getElementById('demo-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="border border-primary/30 dark:border-white/20 text-primary dark:text-on-background-dark px-4 md:px-6 py-2.5 rounded-lg font-semibold text-sm hover:border-primary dark:hover:border-white/50 hover:bg-primary/5 dark:hover:bg-white/5 transition-all duration-300 cursor-pointer">Demo Request</button>
-<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-primary dark:bg-white text-on-primary dark:text-black px-4 md:px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
+<button onclick="document.getElementById('demo-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="border border-primary/30 dark:border-white/20 text-primary dark:text-on-background-dark px-2.5 md:px-6 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm whitespace-nowrap hover:border-primary dark:hover:border-white/50 hover:bg-primary/5 dark:hover:bg-white/5 transition-all duration-300 cursor-pointer">Demo Request</button>
+<button onclick="document.getElementById('cta-heading').scrollIntoView({behavior:'smooth',block:'center'})" class="bg-primary dark:bg-white text-on-primary dark:text-black px-2.5 md:px-6 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm whitespace-nowrap transition-all duration-300 hover:opacity-90 shadow-sm cursor-pointer">Get in Touch</button>
 </div>
 </div>
 </header>
